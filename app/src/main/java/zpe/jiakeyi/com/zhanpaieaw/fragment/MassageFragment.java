@@ -1,10 +1,22 @@
 package zpe.jiakeyi.com.zhanpaieaw.fragment;
 
 
+import android.graphics.Color;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+
 import com.kongzue.baseframework.BaseFragment;
 import com.kongzue.baseframework.interfaces.Layout;
+import com.zhy.autolayout.AutoLinearLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectAdapter;
+import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectFragmentAdapter;
+import zpe.jiakeyi.com.zhanpaieaw.fragment.message.SystemFragment;
 
 /**
  * 创建人： 郭健福
@@ -14,22 +26,38 @@ import zpe.jiakeyi.com.zhanpaieaw.R;
  */
 @Layout(R.layout.fragment_massage)
 public class MassageFragment extends BaseFragment {
-
-
+    private TabLayout tablayout_xiaoxi;
+    private ViewPager viewpager;
+    private List<Fragment> data;
+    private List<String> lists;
+    private AutoLinearLayout auto_ll;
     public MassageFragment() {
-        // Required empty public constructor
     }
-
-
 
     @Override
     public void initViews() {
-
+        tablayout_xiaoxi = findViewById(R.id.tablayout_xiaoxi);
+        auto_ll = findViewById(R.id.auto_ll);
+        viewpager = findViewById(R.id.viewpager);
+        lists = new ArrayList<>();
+        data = new ArrayList<>();
     }
 
     @Override
     public void initDatas() {
+        auto_ll.setY(me.getStatusBarHeight());
+        lists.add("未解决");
+        lists.add("已解决");
+        data.add(new SystemFragment(0));
+        data.add(new SystemFragment(1));
+        MyCollectFragmentAdapter myAdaptre = new MyCollectFragmentAdapter(getChildFragmentManager(),data,lists);
+        viewpager.setAdapter(myAdaptre);
+        viewpager.setCurrentItem(0);
 
+        tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(0)));
+        tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(1)));
+        tablayout_xiaoxi.setTabTextColors(Color.GRAY,Color.rgb(140,211,236));//变颜色
+        tablayout_xiaoxi.setupWithViewPager(viewpager);//把tablayout和viewpage绑定在一起
     }
 
     @Override

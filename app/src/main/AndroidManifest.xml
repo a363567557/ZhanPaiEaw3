@@ -57,7 +57,7 @@
         <activity android:name=".activity.my.CollectActivity" />
         <!-- 3D展馆 -->
         <activity
-            android:name="zpe.jiakeyi.com.zhanpaieaw.activity.exhibition.ExhibitionActivity"
+            android:name=".activity.exhibition.ExhibitionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:process=":unity">
             <meta-data
@@ -71,13 +71,16 @@
         <activity android:name=".activity.my.HellpActivity" />
         <!-- 帮助详情 -->
         <activity android:name=".activity.my.HellpBoothActivity" />
-        <!--城市选择-->
-        <!--消息设置-->
+        <!-- 城市选择 -->
+        <!-- 消息设置 -->
         <activity android:name=".activity.my.ManagementActivity" />
-        <!--我的求购-->
-        <activity android:name="zpe.jiakeyi.com.zhanpaieaw.activity.my.MyBuyActivity" />
-        <!--求购解决-->
+        <!-- 我的求购 -->
+        <activity android:name=".activity.my.MyBuyActivity" />
+        <!-- 求购解决 -->
         <activity android:name=".activity.buy.BuyToSolveActivity" />
+        <activity android:name=".activity.buy.CitySelectionActivity">
+
+        </activity>
     </application>
 
 </manifest>

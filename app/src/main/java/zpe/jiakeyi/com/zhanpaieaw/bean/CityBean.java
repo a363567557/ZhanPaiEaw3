@@ -101,6 +101,7 @@ public class CityBean extends BaseAdapter.BaseDataBean {
             private int id;
             private int levels;
             private List<ListBean> list;
+            public boolean xuanze;
 
             public String getAreaCode() {
                 return areaCode;
@@ -215,6 +216,37 @@ public class CityBean extends BaseAdapter.BaseDataBean {
                     this.list = list;
                 }
             }
+
+            @Override
+            public String toString() {
+                return "ListBeanX{" +
+                        "areaCode='" + areaCode + '\'' +
+                        ", areaName='" + areaName + '\'' +
+                        ", areaParentId=" + areaParentId +
+                        ", id=" + id +
+                        ", levels=" + levels +
+                        ", list=" + list +
+                        '}';
+            }
         }
+
+        @Override
+        public String toString() {
+            return "ListBeanXX{" +
+                    "areaCode='" + areaCode + '\'' +
+                    ", areaName='" + areaName + '\'' +
+                    ", areaParentId=" + areaParentId +
+                    ", id=" + id +
+                    ", levels=" + levels +
+                    ", list=" + list +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "CityBean{" +
+                "list=" + list +
+                '}';
     }
 }

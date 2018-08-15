@@ -1,13 +1,32 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/auto_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="郭健福" />
+        android:orientation="vertical"
+        >
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="2dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#FF4081"
+            app:tabTextColor="#000"
+            android:id="@+id/tablayout_xiaoxi"
+            android:layout_centerInParent="true"
+            tools:ignore="MissingPrefix" />
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewpager"
+            />
 
-</FrameLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

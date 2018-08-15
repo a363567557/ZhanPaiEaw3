@@ -64,9 +64,11 @@ public class ReleaseForAty extends BaseActivity {
     private AlertDialog dialog;
     private View view;
     private RecyclerView dialog_recyclerView;
+    private TextView auto_tv_ch;
 
     @Override
     public void initViews() {
+        auto_tv_ch = findViewById(R.id.auto_tv_ch);
         view = LayoutInflater.from(me).inflate(R.layout.dialog_my_classify, null);
         dialog_recyclerView = view.findViewById(R.id.dialog_recyclerView);
 
@@ -98,7 +100,7 @@ public class ReleaseForAty extends BaseActivity {
         window.setTouchable(true);
     }
 
-    public  void registerData() {
+    public void registerData() {
         OkHttpUtils.post().url(RequestUtlis.IA)
                 .addHeader("loginType", "1")
                 .addParams("", "")
@@ -121,6 +123,13 @@ public class ReleaseForAty extends BaseActivity {
 
     @Override
     public void setEvents() {
+        //城市选择器
+        auto_tv_ch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            jump(CitySelectionActivity.class);
+            }
+        });
         //调用相机
         release_imag_camera.setOnClickListener(new View.OnClickListener() {
             @Override
