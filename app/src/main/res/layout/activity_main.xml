@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/card_view" />
+
+    <RadioGroup
+        android:id="@+id/tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="96px"
+        android:layout_alignParentBottom="true"
+        android:background="#fcfcfc"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/tab_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/checked_image_home"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@drawable/checked_text_home"
+            android:textColorHint="#333333"
+
+            android:textSize="20px" />
+
+        <RadioButton
+            android:id="@+id/tab_exhibition"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/checked_image_exhibition"
+            android:gravity="center"
+            android:text="3D展馆"
+            android:textColor="@drawable/checked_text_home"
+            android:textColorHint="#333333"
+
+            android:textSize="20px" />
+
+        <RadioButton
+            android:id="@+id/tab_massage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/checked_image_massage"
+            android:gravity="center"
+            android:text="消息"
+            android:textColor="@drawable/checked_text_home"
+            android:textColorHint="#333333"
+
+            android:textSize="20px" />
+
+        <RadioButton
+            android:id="@+id/tab_buy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/checked_image_buy"
+            android:gravity="center"
+            android:text="求购"
+            android:textColor="@drawable/checked_text_home"
+            android:textColorHint="#333333"
+
+            android:textSize="20px" />
+
+        <RadioButton
+            android:id="@+id/tab_persona"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/checked_image_my"
+            android:gravity="center"
+            android:text="个人中心"
+            android:textColor="@drawable/checked_text_home"
+            android:textColorHint="#333333"
+            android:textSize="20px" />
+    </RadioGroup>
+</com.zhy.autolayout.AutoRelativeLayout>

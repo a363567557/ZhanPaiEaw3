@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="zpe.jiakeyi.com.zhanpaieaw">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="design_width"
+            android:value="720" />
+        <meta-data
+            android:name="design_height"
+            android:value="1280" />
+        <!-- 首页 -->
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 注冊页面 -->
+        <activity android:name=".activity.login.LoginActivity" />
+        <!-- 登录页面 -->
+        <activity android:name=".activity.login.RegisterActivity" />
+        <activity android:name=".activity.login.VerificationActivity" />
+        <!-- 搜索页面 -->
+        <activity android:name=".activity.home.SeekActivity" />
+        <!-- 多级列表展示页面 -->
+        <activity android:name=".activity.home.CategoryActivity" />
+        <activity android:name=".activity.home.NewsActivity" />
+        <!-- 实验室器材页面 -->
+        <activity android:name=".activity.home.ShowActivity" />
+        <!-- 发布求购页面 -->
+        <activity android:name=".activity.buy.ReleaseForAty" />
+        <!-- 新闻详情页 -->
+        <activity android:name=".activity.home.NewsDetailsAty" />
+        <activity android:name=".activity.home.ProductActivity" />
+        <!-- 个人信息 -->
+        <activity android:name=".activity.my.PersonalActivity" />
+        <!-- 用户名 -->
+        <activity android:name=".activity.my.UserNameActivity" />
+        <!-- 修改绑定手机 -->
+        <activity android:name=".activity.my.MobileActivity" />
+        <!-- 修改密码 -->
+        <activity android:name=".activity.my.PasswordActivity" />
+        <!-- 求购详情 -->
+        <activity android:name=".activity.buy.ParticularsActivity" />
+        <!-- 收藏界面 -->
+        <activity android:name=".activity.my.CollectActivity" />
+        <!-- 3D展馆 -->
+        <activity
+            android:name="zpe.jiakeyi.com.zhanpaieaw.activity.exhibition.ExhibitionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:process=":unity">
+            <meta-data
+                android:name="unityplayer.UnityActivity"
+                android:value="true" />
+            <meta-data
+                android:name="unityplayer.ForwardNativeEventsToDalvik"
+                android:value="false" />
+        </activity>
+        <!-- 帮助界面 -->
+        <activity android:name=".activity.my.HellpActivity" />
+        <!-- 帮助详情 -->
+        <activity android:name=".activity.my.HellpBoothActivity" />
+        <!--城市选择-->
+        <!--消息设置-->
+        <activity android:name=".activity.my.ManagementActivity" />
+        <!--我的求购-->
+        <activity android:name="zpe.jiakeyi.com.zhanpaieaw.activity.my.MyBuyActivity" />
+        <!--求购解决-->
+        <activity android:name=".activity.buy.BuyToSolveActivity" />
+    </application>
+
+</manifest>

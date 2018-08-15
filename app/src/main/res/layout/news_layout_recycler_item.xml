@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:layout_marginBottom="30px"
+        android:layout_marginLeft="34px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="30px"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_news"
+            android:layout_width="240px"
+            android:layout_height="180px"
+            android:src="@mipmap/news_img_1" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:layout_marginLeft="32px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_news"
+                android:layout_width="380px"
+                android:layout_height="130px"
+                android:text="山大啊实打实大萨达撒擦拭发生发的萨芬撒飞洒发撒飞洒发撒飞洒发撒飞洒发萨芬撒飞洒"
+                android:textColor="#333333" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/look_news_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="530人浏览"
+                    android:textColor="#666666"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:id="@+id/time_news_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100px"
+                    android:text="2018-07-07  16:23"
+                    android:textColor="#666666"
+                    android:textSize="24px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginTop="27px"
+        android:background="#f7f7f7" />
+</com.zhy.autolayout.AutoLinearLayout>

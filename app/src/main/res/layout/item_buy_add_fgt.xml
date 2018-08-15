@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="24px"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="125px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_buy_item"
+            android:layout_width="88px"
+            android:layout_height="88px"
+            android:src="@mipmap/buy_img_person" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_buy_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="求购二等标准密度技"
+                android:textColor="#333333"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_buy_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="天马衡基"
+                android:textColor="#666666"
+                android:textSize="24px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="24px"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_time_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07-04"
+                android:textColor="#666666"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/tv_buy_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24px"
+                android:text="天津 西青"
+                android:textColor="#666666"
+                android:textSize="24px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="622px"
+            android:layout_height="1px"
+            android:background="#f7f7f7" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title_goods_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="40px"
+        android:text="清洗/消毒设备"
+        android:textColor="#333333"
+        android:textSize="24px"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/re_mat_goods_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="30px"></android.support.v7.widget.RecyclerView>
+</com.zhy.autolayout.AutoLinearLayout>

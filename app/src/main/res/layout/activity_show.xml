@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/seek_layout" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/classify_title"
+        android:layout_width="682px"
+        android:layout_height="96px"
+        android:layout_marginLeft="24px"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/show_zonghe"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="综合"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:src="@mipmap/product_icon_down" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="108px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/address_show"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="138px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地区"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:src="@mipmap/product_icon_down" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/jyms_show"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="78px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="经营模式"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:src="@mipmap/product_icon_down" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="112px"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/flexbox_layout_show"
+                android:layout_width="wrap_content"
+                android:layout_height="50px"
+                android:background="#ffffff"
+                android:visibility="visible"
+                app:alignContent="flex_start"
+                app:alignItems="flex_start"
+                app:flexDirection="row"
+                app:flexWrap="nowrap"
+                app:justifyContent="flex_start"
+                app:showDivider="beginning|middle"></com.google.android.flexbox.FlexboxLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </HorizontalScrollView>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recycle_show_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6px"
+        android:divider="#F7F7F7"
+        android:dividerHeight="10dp" />
+</com.zhy.autolayout.AutoLinearLayout>

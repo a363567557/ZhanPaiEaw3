@@ -1,0 +1,80 @@
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/at_ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/title_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="实验室仪器"
+                android:textColor="#333333"
+                android:textSize="32px"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/title_seek"
+                android:layout_width="38px"
+                android:layout_height="38px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24px"
+                android:src="@mipmap/product_icon_search" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="90px"
+                    app:tabIndicatorColor="#0077ff"
+                    app:tabSelectedTextColor="#0077ff"
+                    app:tabTextColor="#333333" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vpa_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <ImageView
+                android:id="@+id/img_issue"
+                android:layout_width="88px"
+                android:layout_height="88px"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="146px"
+                android:layout_marginRight="24px"
+                android:src="@mipmap/buy_icon_fabu" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>
+
