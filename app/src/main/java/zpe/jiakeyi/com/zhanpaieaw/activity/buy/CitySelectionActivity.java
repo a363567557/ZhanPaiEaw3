@@ -56,6 +56,7 @@ public class CitySelectionActivity extends BaseActivity {
     private TextView queren;
     private String shengshi;
     private BeanXAdapter beanXAdapter;
+    private String string;
 
     @Override
     public void initViews() {
@@ -79,7 +80,7 @@ public class CitySelectionActivity extends BaseActivity {
     @Override
     public void initDatas(JumpParameter paramer) {
         qingqiu();
-        String string = Preferences.getInstance().getString(me, "user", "user");
+        string = Preferences.getInstance().getString(me, "chengshi", "chengshi");
         Log.d("zdl","==============="+string);
 //        逻辑处理
         luoji(string);
@@ -118,9 +119,11 @@ public class CitySelectionActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response) {
-                        Log.d("zdl","======================开始存粗");
-                        Preferences.getInstance().set(me, "user", "user", response);
-                        Log.d("zdl","======================完成");
+                        if (string == null){
+                            Log.d("zdl","======================开始存粗");
+                            Preferences.getInstance().set(me, "chengshi", "chengshi", response);
+                            Log.d("zdl","======================完成");
+                        }
                     }
                 });
     }
