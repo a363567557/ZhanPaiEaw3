@@ -2,6 +2,7 @@ package zpe.jiakeyi.com.zhanpaieaw.activity.buy;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
+import com.kongzue.baseframework.util.Preferences;
 import com.squareup.okhttp.Request;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -77,7 +79,14 @@ public class CitySelectionActivity extends BaseActivity {
     @Override
     public void initDatas(JumpParameter paramer) {
         qingqiu();
+        String string = Preferences.getInstance().getString(me, "user", "user");
+        Log.d("zdl","==============="+string);
+//        逻辑处理
+        luoji(string);
     }
+
+
+
 
     @Override
     public void setEvents() {
@@ -109,46 +118,53 @@ public class CitySelectionActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response) {
-                        Gson gson = new Gson();
-                        CityDataBean cityDataBean = gson.fromJson(response, CityDataBean.class);
-                        String info = cityDataBean.getData().getInfo();
-                        CityBean cityBean = gson.fromJson(info, CityBean.class);
-                        list = cityBean.getList();
-                        cityAdapter = new CityAdapter(R.layout.item_sheng, list);
-                        rtll_rv_sheng.setAdapter(cityAdapter);
-                        cityAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                        Log.d("zdl","======================开始存粗");
+                        Preferences.getInstance().set(me, "user", "user", response);
+                        Log.d("zdl","======================完成");
+                    }
+                });
+    }
+
+    private void luoji(String string) {
+        Gson gson = new Gson();
+        CityDataBean cityDataBean = gson.fromJson(string, CityDataBean.class);
+        String info = cityDataBean.getData().getInfo();
+        CityBean cityBean = gson.fromJson(info, CityBean.class);
+        list = cityBean.getList();
+        cityAdapter = new CityAdapter(R.layout.item_sheng, list);
+        rtll_rv_sheng.setAdapter(cityAdapter);
+        cityAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, final int position1) {
+                list2 = CitySelectionActivity.this.list.get(position1).getList();
+                beanXAdapter = new BeanXAdapter(R.layout.item_sheng, list2);
+                rtll_rv_shi.setAdapter(beanXAdapter);
+                beanXAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, final int position2) {
+                        list3 = list2.get(position2).getList();
+                        ListAdapter listAdapter = new ListAdapter(R.layout.item_sheng, list3);
+
+                        rtll_rv_qu.setAdapter(listAdapter);
+                        beanXAdapter.notifyDataSetChanged();
+                        listAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                             @Override
-                            public void onItemClick(BaseQuickAdapter adapter, View view, final int position1) {
-                                list2 = CitySelectionActivity.this.list.get(position1).getList();
-                                beanXAdapter = new BeanXAdapter(R.layout.item_sheng, list2);
-                                rtll_rv_shi.setAdapter(beanXAdapter);
-                                beanXAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                                    @Override
-                                    public void onItemClick(BaseQuickAdapter adapter, View view, final int position2) {
-                                        list3 = list2.get(position2).getList();
-                                        ListAdapter listAdapter = new ListAdapter(R.layout.item_sheng, list3);
-
-                                        rtll_rv_qu.setAdapter(listAdapter);
-                                        beanXAdapter.notifyDataSetChanged();
-                                        listAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                                            @Override
-                                            public void onItemClick(BaseQuickAdapter adapter, View view, int position3) {
-                                                toast(list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName());
-                                                shengshi = list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName();
-                                            }
-                                        });
-                                    }
-                                });
-                                cityAdapter.notifyDataSetChanged();
-                                beanXAdapter.notifyDataSetChanged();
-                                if (list3 != null){
-                                    list3.clear();
-                                    beanXAdapter.notifyDataSetChanged();
-                                }
-
+                            public void onItemClick(BaseQuickAdapter adapter, View view, int position3) {
+                                toast(list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName());
+                                shengshi = list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName();
                             }
                         });
                     }
                 });
+                cityAdapter.notifyDataSetChanged();
+                beanXAdapter.notifyDataSetChanged();
+                if (list3 != null) {
+                    list3.clear();
+                    beanXAdapter.notifyDataSetChanged();
+                }
+
+            }
+        });
     }
+
 }

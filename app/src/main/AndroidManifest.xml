@@ -20,11 +20,7 @@
             android:value="1280" />
         <!-- 首页 -->
         <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- 注冊页面 -->
         <activity android:name=".activity.login.LoginActivity" />
@@ -79,7 +75,11 @@
         <!-- 求购解决 -->
         <activity android:name=".activity.buy.BuyToSolveActivity" />
         <activity android:name=".activity.buy.CitySelectionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
