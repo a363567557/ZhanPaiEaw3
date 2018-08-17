@@ -1,94 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:orientation="vertical"
     tools:context="zpe.jiakeyi.com.zhanpaieaw.activity.my.UserNameActivity">
+
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:fitsSystemWindows="true"
-        >
+        android:orientation="vertical">
+
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/white"
-            >
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/image_finish"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                />
+                android:layout_marginLeft="32px"
+                android:src="@mipmap/home_icon_back" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="个人信息"
                 android:layout_centerInParent="true"
-                />
+                android:text="个人信息" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="确定"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                />
+                android:text="确定" />
         </com.zhy.autolayout.AutoRelativeLayout>
+
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="@color/white"
-            >
-            <include layout="@layout/bg_view_1"/>
+            android:orientation="vertical">
+
+            <include layout="@layout/bg_view_1" />
+
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="400px"
                     android:layout_height="wrap_content"
-                    android:text="嘉科仪器"
-                    android:layout_margin="10dp"
                     android:layout_gravity="center"
-                    />
+                    android:layout_margin="10dp"
+                    android:background="@null"
+                    android:hint="嘉科仪器" />
+
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=">"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    />
+                    android:text=">" />
             </com.zhy.autolayout.AutoLinearLayout>
-            <include layout="@layout/bg_view_1"/>
+
+            <include layout="@layout/bg_view_1" />
+
             <EditText
                 android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:drawablePadding="8dp"
-                android:hint="4-20个字符,可由英文、数字、这尼玛什么鬼不写了"
+                android:hint="4-20个字符,可由英文、数字组成"
                 android:inputType="number"
+                android:maxLength="11"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/seekColorText"
-                android:textSize="13sp"
-                android:maxLength="11"
-                />
+                android:textSize="13sp" />
         </com.zhy.autolayout.AutoLinearLayout>
 
 

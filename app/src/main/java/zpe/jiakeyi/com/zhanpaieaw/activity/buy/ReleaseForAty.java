@@ -32,7 +32,9 @@ import com.zhy.autolayout.AutoRelativeLayout;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import chihane.jdaddressselector.model.City;
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.bean.CityBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 import zpe.jiakeyi.com.zhanpaieaw.utils.ToastUtlis;
 
@@ -65,6 +67,7 @@ public class ReleaseForAty extends BaseActivity {
     private View view;
     private RecyclerView dialog_recyclerView;
     private TextView auto_tv_ch;
+    private static String city;
 
     @Override
     public void initViews() {
@@ -121,13 +124,25 @@ public class ReleaseForAty extends BaseActivity {
                 });
     }
 
+    public static void setSheng(CityBean.ListBeanXX Sheng) {
+        city = new String();
+    }
+
+    public static void setShi(CityBean.ListBeanXX.ListBeanX Sheng) {
+        city = Sheng + "  ";
+    }
+
+    public static void setQu(CityBean.ListBeanXX.ListBeanX.ListBean Sheng) {
+        city = city + Sheng;
+    }
+
     @Override
     public void setEvents() {
         //城市选择器
         auto_tv_ch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            jump(CitySelectionActivity.class);
+                jump(CitySelectionActivity.class);
             }
         });
         //调用相机

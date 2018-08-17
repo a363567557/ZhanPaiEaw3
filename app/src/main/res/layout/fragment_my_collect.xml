@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zpe.jiakeyi.com.zhanpaieaw.fragment.message.SystemFragment">
+    tools:context="zpe.jiakeyi.com.zhanpaieaw.fragment.my.MyCollectFragment">
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
@@ -10,10 +10,9 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/system_massage"
+            android:id="@+id/recy_buy_buy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
     </com.zhy.autolayout.AutoLinearLayout>
-
 
 </FrameLayout>

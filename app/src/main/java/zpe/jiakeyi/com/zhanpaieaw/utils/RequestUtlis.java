@@ -7,10 +7,14 @@ package zpe.jiakeyi.com.zhanpaieaw.utils;
  * 功能描述:网络接口
  */
 public class RequestUtlis {
-//    public final static String HttpUrl = "http://192.168.1.181";
+    //    public final static String HttpUrl = "http://192.168.1.181";
     public final static String HttpUrl = "http://39.107.254.193:8080/zp";
+    //    public static String Token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxODgxMDM3OTAzOCIsImlhdCI6MTUzNDQwODYxOCwic3ViIjoiamt5LmFkbWluLnVzZXIiLCJpc3MiOiJ3d3cuamt5LmNvbSIsImV4cCI6MTUzNDQxMjIxOH0.A1uYnuQZtBXaCC4Zpe4JGESF3DJMtRAxfBNVyBb90Ac";
     public static String Token = null;
-    public static String ID = "0d4fbd3293854028b9529af5b51319d8";
+
+    //    public static String ID = "0d4fbd3293854028b9529af5b51319d8";
+    public static String ID = null;
+
 
     /**
      * 广告模块
@@ -22,6 +26,8 @@ public class RequestUtlis {
      */
     //根据地址获取全部广告
     public final static String sAPli = HttpUrl + "/ap/sAPli";
+    //收藏展位列表
+    public final static String getMyCollStands = HttpUrl + "/exStand/admin/getMyCollStands";
     //删除求购信息
     public final static String DA = HttpUrl + "/as/dA";
     //查看求购详情

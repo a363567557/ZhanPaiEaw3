@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
@@ -31,12 +30,9 @@ import zpe.jiakeyi.com.zhanpaieaw.bean.CityDataBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 
 /**
- * 创建人： Nine tails fox
- * 创建时间： 2018/8/15 8:59
- * 功能描述：城市选择器
- * 联系方式：1037438704@qq.com
- *
- * @author dell-pc
+ * @author Gjianfu
+ * @date 2018/8/16
+ * 功能描述:
  */
 
 @Layout(R.layout.activity_city_selection)
@@ -57,6 +53,9 @@ public class CitySelectionActivity extends BaseActivity {
     private String shengshi;
     private BeanXAdapter beanXAdapter;
     private String string;
+    private CityBean.ListBeanXX Sheng;
+    private CityBean.ListBeanXX.ListBeanX Shi;
+    private CityBean.ListBeanXX.ListBeanX.ListBean Qu;
 
     @Override
     public void initViews() {
@@ -94,13 +93,19 @@ public class CitySelectionActivity extends BaseActivity {
         queren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast(shengshi);
+                ReleaseForAty.setSheng(Sheng);
+                ReleaseForAty.setShi(Shi);
+                ReleaseForAty.setQu(Qu);
             }
         });
         chongzhi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                list2.clear();
+                list3.clear();
+                cityAdapter.notifyDataSetChanged();
+                beanXAdapter.notifyDataSetChanged();
+                shengshi = null;
             }
         });
     }
@@ -148,26 +153,25 @@ public class CitySelectionActivity extends BaseActivity {
                         list3 = list2.get(position2).getList();
                         ListAdapter listAdapter = new ListAdapter(R.layout.item_sheng, list3);
 
-                        rtll_rv_qu.setAdapter(listAdapter);
-                        beanXAdapter.notifyDataSetChanged();
-                        listAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(BaseQuickAdapter adapter, View view, int position3) {
-                                toast(list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName());
-                                shengshi = list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName();
+                                        rtll_rv_qu.setAdapter(listAdapter);
+                                        beanXAdapter.notifyDataSetChanged();
+                                        listAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClick(BaseQuickAdapter adapter, View view, int position3) {
+                                                toast(list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName());
+                                                shengshi = list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName();
+                                            }
+                                        });
+                                    }
+                                });
+                                cityAdapter.notifyDataSetChanged();
+                                beanXAdapter.notifyDataSetChanged();
+                                if (list3 != null){
+                                    list3.clear();
+                                    beanXAdapter.notifyDataSetChanged();
+                                }
+
                             }
                         });
                     }
-                });
-                cityAdapter.notifyDataSetChanged();
-                beanXAdapter.notifyDataSetChanged();
-                if (list3 != null) {
-                    list3.clear();
-                    beanXAdapter.notifyDataSetChanged();
-                }
-
-            }
-        });
-    }
-
 }

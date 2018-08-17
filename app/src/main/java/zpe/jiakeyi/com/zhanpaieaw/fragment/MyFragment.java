@@ -8,13 +8,17 @@ import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.util.JumpParameter;
 import com.zhy.autolayout.AutoLinearLayout;
 
+import mlxy.utils.S;
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.activity.LoadingActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.home.ShowActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.login.LoginActivity;
+import zpe.jiakeyi.com.zhanpaieaw.activity.my.BuyBuyActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.HellpActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.ManagementActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.MyBuyActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.PersonalActivity;
+import zpe.jiakeyi.com.zhanpaieaw.activity.my.SettingActivity;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 
 /**
@@ -95,7 +99,8 @@ public class MyFragment extends BaseFragment {
             public void onClick(View v) {
                 if (RequestUtlis.Token != null) {
                     //收藏界面
-                    jump(ShowActivity.class, new JumpParameter().put("是否显示分类栏", false));
+                    jump(BuyBuyActivity.class);
+
                 } else {
                     jump(LoginActivity.class);
                 }
@@ -138,6 +143,7 @@ public class MyFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (RequestUtlis.Token != null) {
+                    //我的求购界面
                     jump(MyBuyActivity.class);
                 } else {
                     jump(LoginActivity.class);
@@ -149,7 +155,7 @@ public class MyFragment extends BaseFragment {
         share_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jump(HellpActivity.class);
+                jump(LoadingActivity.class);
             }
         });
         //设置页面
@@ -157,7 +163,7 @@ public class MyFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (RequestUtlis.Token != null) {
-                    jump(ManagementActivity.class);
+                    jump(SettingActivity.class);
                 } else {
                     jump(LoginActivity.class);
                 }

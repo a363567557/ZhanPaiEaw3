@@ -1,19 +1,35 @@
 package zpe.jiakeyi.com.zhanpaieaw.fragment.my;
 
+import com.google.gson.Gson;
 
 import android.annotation.SuppressLint;
-import android.support.design.widget.TabLayout;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.kongzue.baseframework.BaseFragment;
 import com.kongzue.baseframework.interfaces.Layout;
+import com.squareup.okhttp.Request;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
-import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectFragmentAdapter;
+import zpe.jiakeyi.com.zhanpaieaw.adapter.showpinAdapter;
+import zpe.jiakeyi.com.zhanpaieaw.adapter.unslovedAdapter;
+import zpe.jiakeyi.com.zhanpaieaw.bean.ShowBean;
+import zpe.jiakeyi.com.zhanpaieaw.bean.solveBean;
+import zpe.jiakeyi.com.zhanpaieaw.bean.unsolvedBean;
+import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,11 +38,7 @@ import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectFragmentAdapter;
 @Layout(R.layout.fragment_blank_fragment2)
 public class CollectBoothFragment extends BaseFragment {
     private int count;
-    private TabLayout fragment_tab;
-    private ViewPager fragment_viewpager;
-    private List<Fragment> data;
-    private List<String> lists;
-    private MyCollectFragmentAdapter myFragmentAdapter;
+    private RecyclerView recy_collect_fm;
 
     public CollectBoothFragment(int count) {
         this.count = count;
@@ -34,41 +46,86 @@ public class CollectBoothFragment extends BaseFragment {
 
     @Override
     public void initViews() {
-        fragment_tab = findViewById(R.id.fragment_tab);
-        fragment_viewpager = findViewById(R.id.fragment_viewpager);
-        lists = new ArrayList<>();
-        data = new ArrayList<>();
+        recy_collect_fm = findViewById(R.id.recy_collect_fm);
     }
 
     @Override
     public void initDatas() {
-        lists.add("未解决");
-        lists.add("已解决");
-        lists.add("已解决");
-        lists.add("已解决");
-        lists.add("已解决");
-        lists.add("已解决");
-        lists.add("已解决");
-        lists.add("已解决");
-        data.add(new ExhibitsFragment(count, 0));
-        data.add(new ExhibitsFragment(count, 1));
-        data.add(new ExhibitsFragment(count, 2));
-        data.add(new ExhibitsFragment(count, 3));
-        data.add(new ExhibitsFragment(count, 4));
-        data.add(new ExhibitsFragment(count, 5));
-        data.add(new ExhibitsFragment(count, 6));
-        data.add(new ExhibitsFragment(count, 7));
+        if (count == 0) {
+            LinearLayoutManager MassageManager = new LinearLayoutManager(me);
+            MassageManager.setOrientation(LinearLayoutManager.VERTICAL);
+            recy_collect_fm.setLayoutManager(MassageManager);
+            OkHttpUtils.post().url(RequestUtlis.sAu)
+                    .addHeader("loginType", "1")
+                    .addParams("pageSize", "100")
+                    .addParams("pageNum", "1")
+                    .addParams("userId", RequestUtlis.ID)
+                    .addParams("solveStatus", "1")
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                        }
 
-        myFragmentAdapter = new MyCollectFragmentAdapter(getChildFragmentManager(), data, lists);
+                        @Override
+                        public void onResponse(String response) {
+                            Gson gson = new Gson();
+                            solveBean solveBean = gson.fromJson(response, solveBean.class);
 
-        fragment_viewpager.setAdapter(myFragmentAdapter);
-        // 将ViewPager与TabLayout相关联
-        fragment_tab.setupWithViewPager(fragment_viewpager);
+                        }
+                    });
+        } else if (count == 1) {
+            LinearLayoutManager MassageManager = new LinearLayoutManager(me);
+            MassageManager.setOrientation(LinearLayoutManager.VERTICAL);
+            recy_collect_fm.setLayoutManager(MassageManager);
+            OkHttpUtils.post().url(RequestUtlis.sAu)
+                    .addHeader("loginType", "1")
+                    .addParams("pageSize", "100")
+                    .addParams("pageNum", "1")
+                    .addParams("userId", RequestUtlis.ID)
+                    .addParams("solveStatus", "0")
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            Gson gson = new Gson();
+                            unsolvedBean unsolvedBean = gson.fromJson(response, unsolvedBean.class);
+                            List<zpe.jiakeyi.com.zhanpaieaw.bean.unsolvedBean.DataBean.ListBeanX.ListBean> list = unsolvedBean.getData().getList().getList();
+                            unslovedAdapter unslovedAdapter = new unslovedAdapter(R.layout.item_jiejue_adapter2, list);
+                            recy_collect_fm.setAdapter(unslovedAdapter);
+                        }
+                    });
+        }
+//        lists.add("未解决");
+//        lists.add("已解决");
+//        lists.add("已解决");
+//        lists.add("已解决");
+//        lists.add("已解决");
+//        lists.add("已解决");
+//        lists.add("已解决");
+//        lists.add("已解决");
+//        data.add(new ExhibitsFragment(count, 0));
+//        data.add(new ExhibitsFragment(count, 1));
+//        data.add(new ExhibitsFragment(count, 2));
+//        data.add(new ExhibitsFragment(count, 3));
+//        data.add(new ExhibitsFragment(count, 4));
+//        data.add(new ExhibitsFragment(count, 5));
+//        data.add(new ExhibitsFragment(count, 6));
+//        data.add(new ExhibitsFragment(count, 7));
+//
+//        myFragmentAdapter = new MyCollectFragmentAdapter(getChildFragmentManager(), data, lists);
+//
+//        fragment_viewpager.setAdapter(myFragmentAdapter);
+//        // 将ViewPager与TabLayout相关联
+//        fragment_tab.setupWithViewPager(fragment_viewpager);
     }
 
     @Override
     public void setEvents() {
 
     }
-
 }

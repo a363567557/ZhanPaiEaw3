@@ -17,11 +17,13 @@ import zpe.jiakeyi.com.zhanpaieaw.R;
 import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectAdapter;
 import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectFragmentAdapter;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.message.SystemFragment;
+import zpe.jiakeyi.com.zhanpaieaw.fragment.message.UserFragment;
 
 /**
  * 创建人： 郭健福
  * 创建时间： 2018/7/23 21:44
  * 功能描述：消息页面
+ *
  * @author dell-pc
  */
 @Layout(R.layout.fragment_massage)
@@ -31,6 +33,7 @@ public class MassageFragment extends BaseFragment {
     private List<Fragment> data;
     private List<String> lists;
     private AutoLinearLayout auto_ll;
+
     public MassageFragment() {
     }
 
@@ -46,17 +49,17 @@ public class MassageFragment extends BaseFragment {
     @Override
     public void initDatas() {
         auto_ll.setY(me.getStatusBarHeight());
-        lists.add("未解决");
-        lists.add("已解决");
-        data.add(new SystemFragment(0));
-        data.add(new SystemFragment(1));
-        MyCollectFragmentAdapter myAdaptre = new MyCollectFragmentAdapter(getChildFragmentManager(),data,lists);
+        lists.add("系统信息");
+        lists.add("用户信息");
+        data.add(new SystemFragment());
+        data.add(new UserFragment());
+        MyCollectFragmentAdapter myAdaptre = new MyCollectFragmentAdapter(getChildFragmentManager(), data, lists);
         viewpager.setAdapter(myAdaptre);
         viewpager.setCurrentItem(0);
 
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(0)));
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(1)));
-        tablayout_xiaoxi.setTabTextColors(Color.GRAY,Color.rgb(140,211,236));//变颜色
+        tablayout_xiaoxi.setTabTextColors(Color.GRAY, Color.rgb(140, 211, 236));//变颜色
         tablayout_xiaoxi.setupWithViewPager(viewpager);//把tablayout和viewpage绑定在一起
     }
 

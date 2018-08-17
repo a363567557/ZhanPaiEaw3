@@ -2,7 +2,10 @@ package zpe.jiakeyi.com.zhanpaieaw.activity.login;
 
 import com.google.gson.Gson;
 
+import android.text.InputType;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +46,7 @@ public class LoginActivity extends BaseActivity {
     private EditText user_numb;
     private EditText password_logi;
     private TextView login_but;
+    private CheckBox password_logi_see;
 
     @Override
     public void initViews() {
@@ -53,6 +57,7 @@ public class LoginActivity extends BaseActivity {
         password_logi = findViewById(R.id.password_logi);
         login_but = findViewById(R.id.login_but);
         text_register = findViewById(R.id.text_register);
+        password_logi_see = findViewById(R.id.password_logi_see);
     }
 
     @Override
@@ -62,6 +67,17 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setEvents() {
+        password_logi_see.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    password_logi.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    password_logi.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+            }
+
+        });
         //注册界面
         text_register.setOnClickListener(new View.OnClickListener() {
             @Override

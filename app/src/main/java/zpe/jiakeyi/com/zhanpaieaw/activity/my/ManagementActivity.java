@@ -60,6 +60,39 @@ public class ManagementActivity extends BaseActivity {
                 }
             }
         });
+        ll_lmage_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ll_lmage_1.setSelected(aBoolean);
+                if (aBoolean == true) {
+                    aBoolean = false;
+                } else {
+                    aBoolean = true;
+                }
+            }
+        });
+        ll_lmage_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ll_lmage_1.setSelected(aBoolean);
+                if (aBoolean == true) {
+                    aBoolean = false;
+                } else {
+                    aBoolean = true;
+                }
+            }
+        });
+        ll_lmage_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ll_lmage_1.setSelected(aBoolean);
+                if (aBoolean == true) {
+                    aBoolean = false;
+                } else {
+                    aBoolean = true;
+                }
+            }
+        });
     }
 
 }

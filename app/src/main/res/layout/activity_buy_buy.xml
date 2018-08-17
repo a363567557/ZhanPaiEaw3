@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="zpe.jiakeyi.com.zhanpaieaw.activity.my.BuyBuyActivity">
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/auto_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -26,8 +26,8 @@
                 android:src="@mipmap/home_icon_back" />
 
             <android.support.design.widget.TabLayout
-                android:id="@+id/tablayout_xiaoxi"
-                android:layout_width="match_parent"
+                android:id="@+id/tablayout_xiaoxi1"
+                android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 app:tabGravity="fill"
@@ -38,16 +38,10 @@
                 tools:ignore="MissingPrefix" />
         </RelativeLayout>
 
-        <FrameLayout
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF">
+            android:layout_height="match_parent" />
 
-            <zpe.jiakeyi.com.zhanpaieaw.view.NoSrcollViewPage
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:isScrollContainer="true" />
-        </FrameLayout>
-    </LinearLayout>
-</LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

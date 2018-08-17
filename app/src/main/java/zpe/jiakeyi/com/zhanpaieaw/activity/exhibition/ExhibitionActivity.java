@@ -32,6 +32,10 @@ public class ExhibitionActivity extends UnityPlayerActivity {
 
     }
 
+    public static void IntentOne(String id) {
+        UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetOneShellSchemLoadMode", id);
+
+    }
 
     private void initView() {
         scan = (AutoLinearLayout) findViewById(R.id.UnityView);

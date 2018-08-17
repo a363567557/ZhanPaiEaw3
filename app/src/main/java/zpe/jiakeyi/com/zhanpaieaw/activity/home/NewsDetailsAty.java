@@ -25,7 +25,7 @@ import zpe.jiakeyi.com.zhanpaieaw.R;
 @NavigationBarBackgroundColor(a = 255, r = 255, g = 255, b = 255)
 //透明颜色   设置底部导航栏背景颜色（a = 255,r = 255,g = 255,b = 255 黑色的)
 @DarkNavigationBarTheme(true) //开启底部导航栏按钮暗色模式
-public class NewsDetailsAty extends BaseActivity implements View.OnClickListener {
+public class NewsDetailsAty extends BaseActivity {
 
 
     private ImageView title_back;
@@ -36,11 +36,8 @@ public class NewsDetailsAty extends BaseActivity implements View.OnClickListener
     @Override
     public void initViews() {
         title_back = findViewById(R.id.title_back);
-        title_back.setOnClickListener(this);
         title_name = findViewById(R.id.title_name);
-        title_name.setOnClickListener(this);
         title_seek = findViewById(R.id.title_seek);
-        title_seek.setOnClickListener(this);
         web_news_details = findViewById(R.id.web_news_details);
     }
 
@@ -51,11 +48,19 @@ public class NewsDetailsAty extends BaseActivity implements View.OnClickListener
 
     @Override
     public void setEvents() {
+        title_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        title_seek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(SeekActivity.class);
+            }
+        });
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 }

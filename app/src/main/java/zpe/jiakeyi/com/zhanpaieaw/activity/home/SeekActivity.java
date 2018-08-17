@@ -5,11 +5,13 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.google.android.flexbox.FlexboxLayout;
 import com.kongzue.baseframework.BaseActivity;
 import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
@@ -17,13 +19,22 @@ import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
+import com.squareup.okhttp.Request;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.util.List;
+
+import mlxy.utils.L;
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.bean.HotSeekBean;
+import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 
 /**
  * 创建人： 郭健福
  * 创建时间： 2018/7/23 21:44
  * 功能描述：搜索页
+ *
  * @author dell-pc
  */
 @Layout(R.layout.activity_seek)
@@ -64,28 +75,41 @@ public class SeekActivity extends BaseActivity {
         textView.setPadding(30, 0, 30, 0);
         textView.setTextColor(R.color.seekColorText);
         flexbox_layout_history.addView(textView);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void initDatas(JumpParameter paramer) {
-        addHotTextItem("标签1");
-        addHotTextItem("标签22");
-        addHotTextItem("标签333");
-        addHotTextItem("标签4444");
-        addHotTextItem("标签55555");
-        addHotTextItem("标签666666");
-        addHistoryTextItem("标签1");
-        addHistoryTextItem("标签22");
-        addHistoryTextItem("标签333");
-        addHistoryTextItem("标签4444");
-        addHistoryTextItem("标签55555");
-        addHistoryTextItem("标签666666");
+        OkHttpUtils.post().url(RequestUtlis.sSE)
+                .addHeader("loginType", "1")
+                .addParams("", "")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+                        Gson gson = new Gson();
+                        HotSeekBean hotSeekBean = gson.fromJson(response, HotSeekBean.class);
+                        List<String> list = hotSeekBean.getData().getList();
+                        for (int i = 0; i < list.size(); i++) {
+                            addHotTextItem(list.get(i));
+                        }
+                    }
+                });
     }
 
     @Override
     public void setEvents() {
-
+        return_img_seek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 

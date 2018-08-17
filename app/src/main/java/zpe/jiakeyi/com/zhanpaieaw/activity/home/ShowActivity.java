@@ -71,6 +71,7 @@ public class ShowActivity extends BaseActivity {
     private AutoLinearLayout show_zonghe;
     private AutoLinearLayout seek_title;
     private AutoLinearLayout address_show;
+    private ImageView search_title;
     /**
      * PoupWindow 中的列表
      */
@@ -102,8 +103,8 @@ public class ShowActivity extends BaseActivity {
         seek_title_layout = findViewById(R.id.seek_title_layout);
         recycle_show_home = findViewById(R.id.recycle_show_home);
         recycle_show_home.setLayoutManager(new GridLayoutManager(me, 2, OrientationHelper.VERTICAL, false));
-        showRecyclerAdapter = new ShowRecyclerAdapter(me);
         recycle_show_home.addItemDecoration(new DividerGridItemDecoration(this));
+        showRecyclerAdapter = new ShowRecyclerAdapter(me);
         recycle_show_home.setAdapter(showRecyclerAdapter);
         show_zonghe = findViewById(R.id.show_zonghe);
         address_show = findViewById(R.id.address_show);
@@ -113,6 +114,7 @@ public class ShowActivity extends BaseActivity {
         listshow = new ArrayList<>();
         listjyms = new ArrayList<>();
         strings = new ArrayList<>();
+        search_title = findViewById(R.id.search_title);
     }
 
 
@@ -129,7 +131,18 @@ public class ShowActivity extends BaseActivity {
 
             }
         }
-
+        return_img_seek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        search_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(SeekActivity.class);
+            }
+        });
         strings.add(new TextBean().setTitle("1"));
         strings.add(new TextBean().setTitle("1"));
         strings.add(new TextBean().setTitle("1"));

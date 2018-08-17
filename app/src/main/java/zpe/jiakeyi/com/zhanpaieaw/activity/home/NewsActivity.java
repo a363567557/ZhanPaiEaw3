@@ -51,6 +51,7 @@ public class NewsActivity extends BaseActivity {
         tab_news = findViewById(R.id.tab_news);
         vpa_news = findViewById(R.id.vpa_news);
         myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        title_name.setText("平台快报");
     }
 
     @Override
