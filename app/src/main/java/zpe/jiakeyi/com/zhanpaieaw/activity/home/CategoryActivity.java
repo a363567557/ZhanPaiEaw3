@@ -47,6 +47,7 @@ public class CategoryActivity extends com.kongzue.baseframework.BaseActivity imp
 
 
     private ImageView img_search_category;
+    private ImageView fh_fl;
     private CategoryListAdapter categoryListAdapter;
     private List<sysBean.DataBean.ListBeanXX> mDatas;
     private int mPosition;
@@ -58,6 +59,13 @@ public class CategoryActivity extends com.kongzue.baseframework.BaseActivity imp
     @Override
     public void initViews() {
         img_search_category = (ImageView) findViewById(R.id.img_search_category);
+        fh_fl = (ImageView) findViewById(R.id.fh_fl);
+        fh_fl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         img_search_category.setOnClickListener(this);
         listview_category = (ListView) findViewById(R.id.listview_category);
         listview_category.setOnItemClickListener(this);

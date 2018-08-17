@@ -31,10 +31,14 @@ public class showpinAdapter extends BaseQuickAdapter<ShowBean.DataBean.ListBean,
         TextView viewById3 = helper.itemView.findViewById(R.id.tv_show_recycle_item_city);
         TextView viewById4 = helper.itemView.findViewById(R.id.tv_show_recycle_item_region);
         TextView viewById5 = helper.itemView.findViewById(R.id.tv_show_recycle_look);
-        Glide.with(mContext).load(item.getImgUrl()).apply(new RequestOptions().error(R.mipmap.product_img_list)).into((ImageView) viewById1);
-        viewById2.setText(item.getPname());
-        viewById3.setText(item.getAreaA() + "");
-        viewById4.setText(item.getAreaB() + "");
-        viewById5.setText(item.getClickNo() + "人看过");
+        if (item != null) {
+            Glide.with(mContext).load(item.getImgUrl()).apply(new RequestOptions().error(R.mipmap.product_img_list)).into((ImageView) viewById1);
+            viewById2.setText(item.getPname());
+            viewById3.setText(item.getAreaA() + "");
+            viewById4.setText(item.getAreaB() + "");
+            viewById5.setText(item.getClickNo() + "人看过");
+        }
+
+
     }
 }

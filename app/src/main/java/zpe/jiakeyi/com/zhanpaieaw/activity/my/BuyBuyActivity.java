@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.kongzue.baseframework.BaseActivity;
 import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
@@ -33,6 +35,7 @@ public class BuyBuyActivity extends BaseActivity {
     private ViewPager viewpager;
     private List<Fragment> data;
     private List<String> lists;
+    private ImageView back_buy;
 
     @Override
     public void initViews() {
@@ -55,11 +58,17 @@ public class BuyBuyActivity extends BaseActivity {
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(1)));
         tablayout_xiaoxi.setTabTextColors(Color.GRAY, Color.rgb(140, 211, 236));//变颜色
         tablayout_xiaoxi.setupWithViewPager(viewpager);//把tablayout和viewpage绑定在一起
+        back_buy = findViewById(R.id.back_buy);
     }
 
     @Override
     public void setEvents() {
-
+        back_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 }

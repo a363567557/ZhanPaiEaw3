@@ -14,7 +14,7 @@ public class RequestUtlis {
 
     //    public static String ID = "0d4fbd3293854028b9529af5b51319d8";
     public static String ID = null;
-
+    public static String UserPhone = null;
 
     /**
      * 广告模块

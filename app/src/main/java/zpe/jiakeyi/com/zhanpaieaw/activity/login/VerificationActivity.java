@@ -42,6 +42,7 @@ public class VerificationActivity extends BaseActivity {
     private TextView dialog_finish;
     private Dialog bottomDialog;
     private View contentView;
+    private View image_return;
     private String count;
     private TextView register_text_login;
 
@@ -49,7 +50,7 @@ public class VerificationActivity extends BaseActivity {
     public void initViews() {
         register_text_login = findViewById(R.id.register_text_login);
         list = new ArrayList<>();
-
+        image_return = findViewById(R.id.image_return);
         bottomDialog = new Dialog(this, R.style.BottomDialog);
         contentView = LayoutInflater.from(this).inflate(R.layout.dialog_content_normal, null);
         listView = contentView.findViewById(R.id.listView);
@@ -77,6 +78,12 @@ public class VerificationActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 jump(LoginActivity.class);
+            }
+        });
+        image_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

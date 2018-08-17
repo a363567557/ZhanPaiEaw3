@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:orientation="vertical"
     tools:context="zpe.jiakeyi.com.zhanpaieaw.activity.my.HellpBoothActivity">
+
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,26 +23,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="如何开通展位"
-            android:textSize="20sp"
-            android:textColor="@color/black" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="      1.这里东西自己写"
-            />
+            android:text="3D展馆打不开"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="      2.这里东西自己写"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="      2.这里东西自己写"
-            />
+            android:text="      请检查网络连接情况，如网络连接正常可尝试刷新页面。若还未解决问题建议更换浏览器，推荐使用火狐、谷歌。" />
 
     </com.zhy.autolayout.AutoLinearLayout>
 
-</com.zhy.autolayout.AutoLinearLayout >
+</com.zhy.autolayout.AutoLinearLayout>

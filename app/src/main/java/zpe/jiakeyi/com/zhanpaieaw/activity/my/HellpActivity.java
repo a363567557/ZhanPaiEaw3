@@ -11,13 +11,11 @@ import com.kongzue.baseframework.util.JumpParameter;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
+
 /**
- * 创建人： 九尾妖狐
- * 创建时间： 2018/8/6 10:00
- * 功能描述： 帮助界面
- * 联系方式：1037438704@qq.com
- *
- * @author dell-pc
+ * @author Gjianfu
+ * @date 2018/8/17
+ * 功能描述:
  */
 
 @Layout(R.layout.activity_hellp)

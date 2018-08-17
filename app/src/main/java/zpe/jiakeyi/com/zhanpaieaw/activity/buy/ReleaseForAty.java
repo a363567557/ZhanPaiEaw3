@@ -1,5 +1,6 @@
 package zpe.jiakeyi.com.zhanpaieaw.activity.buy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -9,10 +10,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -32,8 +35,15 @@ import com.zhy.autolayout.AutoRelativeLayout;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+
 import chihane.jdaddressselector.model.City;
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.activity.MainActivity;
 import zpe.jiakeyi.com.zhanpaieaw.bean.CityBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 import zpe.jiakeyi.com.zhanpaieaw.utils.ToastUtlis;
@@ -66,15 +76,32 @@ public class ReleaseForAty extends BaseActivity {
     private AlertDialog dialog;
     private View view;
     private RecyclerView dialog_recyclerView;
-    private TextView auto_tv_ch;
+    private static TextView auto_tv_ch;
+    private TextView fenlei_tv;
     private static String city;
+    private CityBean.ListBeanXX sheng;
+    private CityBean.ListBeanXX.ListBeanX shi;
+    private CityBean.ListBeanXX.ListBeanX.ListBean qu;
+    private EditText et_title;
+    private EditText et_account;
+    private EditText et_phone;
+    private EditText et_qq;
+    private EditText et_weixin;
+    private final String items[] = {"实验室仪器", "服务", "家具", "仪器与耗材"};
+    private int with = 1;
+    private List<String> imgs;
 
     @Override
     public void initViews() {
         auto_tv_ch = findViewById(R.id.auto_tv_ch);
         view = LayoutInflater.from(me).inflate(R.layout.dialog_my_classify, null);
         dialog_recyclerView = view.findViewById(R.id.dialog_recyclerView);
-
+        fenlei_tv = findViewById(R.id.fenlei_tv);
+        et_title = findViewById(R.id.et_title);
+        et_account = findViewById(R.id.et_account);
+        et_phone = findViewById(R.id.et_phone);
+        et_qq = findViewById(R.id.et_qq);
+        et_weixin = findViewById(R.id.et_weixin);
         rf_tv_fabu = findViewById(R.id.rf_tv_fabu);
         release_imag_camera = findViewById(R.id.release_imag_camera);
         release_rl_classify = findViewById(R.id.release_rl_classify);
@@ -99,17 +126,27 @@ public class ReleaseForAty extends BaseActivity {
         window.setFocusable(false);
         // 设置PopupWindow是否能响应外部点击事件
         window.setOutsideTouchable(false);
-        // 设置PopupWindow是否能响应点击事件
+        // 设置PopupWindow是否能响应点击事件5
         window.setTouchable(true);
     }
 
     public void registerData() {
         OkHttpUtils.post().url(RequestUtlis.IA)
                 .addHeader("loginType", "1")
-                .addParams("", "")
-                .addParams("", "")
-                .addParams("", "")
-                .addParams("", "")
+                .addHeader("ACCESS_TOKEN", RequestUtlis.Token)
+                .addParams("loginId", RequestUtlis.ID)
+                .addParams("title", et_title.getText().toString())
+                .addParams("content", et_account.getText().toString())
+                .addParams("typeA", fenlei_tv.getText().toString())
+                .addParams("typeAId", "with")
+                .addParams("addressA", "" + sheng.getAreaName())
+                .addParams("addressB", "" + shi.getAreaName())
+                .addParams("addressC", "" + qu.getAreaName())
+                .addParams("addressAId", "" + sheng.getId())
+                .addParams("addressBId", "" + shi.getId())
+                .addParams("addressCId", "" + qu.getId())
+                .addParams("iphoneNo", "" + et_phone.getText().toString())
+                .addParams("imgs", "")
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -125,15 +162,17 @@ public class ReleaseForAty extends BaseActivity {
     }
 
     public static void setSheng(CityBean.ListBeanXX Sheng) {
-        city = new String();
+        city = "";
     }
 
     public static void setShi(CityBean.ListBeanXX.ListBeanX Sheng) {
-        city = Sheng + "  ";
+        Log.i("市区", "setShi: " + Sheng);
+        city = Sheng.getAreaName() + "  ";
     }
 
     public static void setQu(CityBean.ListBeanXX.ListBeanX.ListBean Sheng) {
-        city = city + Sheng;
+        city = city + Sheng.getAreaName();
+        auto_tv_ch.setText(city);
     }
 
     @Override
@@ -157,7 +196,7 @@ public class ReleaseForAty extends BaseActivity {
         release_rl_classify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                dialogChoice();
             }
         });
         //这里是发布
@@ -231,9 +270,12 @@ public class ReleaseForAty extends BaseActivity {
         if (requestCode == CAMERA && resultCode == RESULT_OK && data != null) {
             // 拍照
             Bundle bundle = data.getExtras();
+            log(data);
             // 获取相机返回的数据，并转换为图片格式
             Bitmap bitmap = (Bitmap) bundle.get("data");
-            toastUtlis(bitmap, null);
+            saveBitmapFile(bitmap);
+//            toastUtlis(bitmap, null);
+
             // TODO 图片从这里拿
 //            Glide.with(this).load(bitmap).apply(new RequestOptions().circleCrop()).into(imagView);
 
@@ -242,6 +284,7 @@ public class ReleaseForAty extends BaseActivity {
              * 调用图库
              */
             Uri selectedImage = data.getData();
+            log(selectedImage);
             // TODO 图片从这里拿
 //            Glide.with(this).load(selectedImage).apply(new RequestOptions().circleCrop()).into(imagView);
         }
@@ -259,5 +302,40 @@ public class ReleaseForAty extends BaseActivity {
         textView.setText("带图片的Toast信息");
         ll.addView(textView);
         ToastUtlis.showImageToast(me, ll);
+    }
+
+    public void saveBitmapFile(Bitmap bitmap) {
+
+        File file = new File("/mnt/sdcard/zhanpai/01.png");//将要保存图片的路径
+        try {
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            bos.flush();
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void dialogChoice() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(me);
+        builder.setSingleChoiceItems(items, 0,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                fenlei_tv.setText(items[which]);
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    private void ImgPost(File file) {
+
     }
 }

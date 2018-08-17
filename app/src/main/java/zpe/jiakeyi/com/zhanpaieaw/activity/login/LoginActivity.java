@@ -3,6 +3,7 @@ package zpe.jiakeyi.com.zhanpaieaw.activity.login;
 import com.google.gson.Gson;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -120,6 +121,8 @@ public class LoginActivity extends BaseActivity {
                                 if (loginBeanCode.getCode() == 1) {
                                     RequestUtlis.Token = loginBeanCode.getData().getACCESS_TOKEN();
                                     RequestUtlis.ID = loginBeanCode.getData().getUserInfo().getId();
+                                    Log.i("token", "onResponse: " + RequestUtlis.Token);
+                                    Log.i("id", "onResponse: " + RequestUtlis.ID);
                                     Toast.makeText(me, "登录成功", Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {

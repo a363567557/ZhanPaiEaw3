@@ -28,11 +28,17 @@ public class ExhibitionActivity extends UnityPlayerActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
         initView();
         UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetUserID", "c714cf2c528f40d5b4108a3ca52b21db");
-        UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetAllShellSchemLoadMode", "");
+        UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetAllShellSchemLoadMode", "天平");
 
     }
 
+    public static void IntentAll() {
+        UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetUserID", "c714cf2c528f40d5b4108a3ca52b21db");
+        UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetAllShellSchemLoadMode", "");
+    }
+
     public static void IntentOne(String id) {
+        UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetUserID", "c714cf2c528f40d5b4108a3ca52b21db");
         UnityPlayer.UnitySendMessage("OtherPlatFormsObj", "GetOneShellSchemLoadMode", id);
 
     }

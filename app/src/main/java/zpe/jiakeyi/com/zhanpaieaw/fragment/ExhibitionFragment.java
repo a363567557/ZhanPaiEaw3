@@ -44,5 +44,6 @@ public class ExhibitionFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         jump(ExhibitionActivity.class);
+        ExhibitionActivity.IntentAll();
     }
 }

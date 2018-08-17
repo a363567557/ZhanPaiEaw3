@@ -8,11 +8,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.kongzue.baseframework.BaseFragment;
 import com.kongzue.baseframework.interfaces.Layout;
@@ -23,6 +25,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.List;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.activity.home.ProductActivity;
 import zpe.jiakeyi.com.zhanpaieaw.adapter.showpinAdapter;
 import zpe.jiakeyi.com.zhanpaieaw.bean.ShowBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
@@ -49,14 +52,17 @@ public class MyCollectFragment extends BaseFragment {
     @Override
     public void initDatas() {
         if (count == 2) {
+            Log.i("token", "onResponse: " + RequestUtlis.Token);
+
             recy_buy_buy.setLayoutManager(new GridLayoutManager(me, 2, OrientationHelper.VERTICAL, false));
             OkHttpUtils.post().url(RequestUtlis.selCollP)
-                    .addHeader("loginType", "1")
-                    .addParams("Token", RequestUtlis.Token)
+                    .addHeader("ACCESS_TOKEN", RequestUtlis.Token)
+                    .addParams("", "")
                     .build()
                     .execute(new StringCallback() {
                         @Override
                         public void onError(Request request, Exception e) {
+                            log(e);
                             Toast.makeText(me, "" + e, Toast.LENGTH_SHORT).show();
                         }
 
@@ -67,6 +73,12 @@ public class MyCollectFragment extends BaseFragment {
                             ShowBean showBean = gson.fromJson(response, ShowBean.class);
                             List<ShowBean.DataBean.ListBean> list = showBean.getData().getList();
                             showpinAdapter showpinAdapter = new showpinAdapter(R.layout.recycler_show_home_item, list);
+                            showpinAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+                                @Override
+                                public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                                    jump(ProductActivity.class);
+                                }
+                            });
                             recy_buy_buy.setAdapter(showpinAdapter);
                         }
                     });

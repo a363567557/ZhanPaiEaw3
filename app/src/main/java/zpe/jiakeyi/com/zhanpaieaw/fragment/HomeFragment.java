@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.activity.exhibition.ExhibitionActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.home.CategoryActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.home.NewsActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.home.ProductActivity;
@@ -173,7 +174,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                             @Override
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                                 toast("你点击了第" + position + "条");
-                                jump(ProductActivity.class);
+                                jump(ExhibitionActivity.class);
+                                ExhibitionActivity.IntentOne(list.get(position).getId());
                             }
                         });
 
@@ -183,6 +185,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                                 toast("你点击了第" + position + "条");
                                 //跳转到商品详情界面
                                 jump(ProductActivity.class);
+
+
                             }
                         });
                     }
@@ -251,19 +255,19 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 break;
             //跳转实验室仪器页面
             case R.id.img_yq:
-                jump(CategoryActivity.class,new JumpParameter().put("类型","1"));
+                jump(CategoryActivity.class, new JumpParameter().put("类型", "1"));
                 break;
             //跳转实验室服务页面
             case R.id.img_fw:
-                jump(CategoryActivity.class,new JumpParameter().put("类型","2"));
+                jump(CategoryActivity.class, new JumpParameter().put("类型", "2"));
                 break;
             //跳转实验室家具界面
             case R.id.img_jj:
-                jump(CategoryActivity.class,new JumpParameter().put("类型","3"));
+                jump(CategoryActivity.class, new JumpParameter().put("类型", "3"));
                 break;
             //跳转试剂与耗材页面
             case R.id.img_hc:
-                jump(CategoryActivity.class,new JumpParameter().put("类型","4"));
+                jump(CategoryActivity.class, new JumpParameter().put("类型", "4"));
                 break;
             //最新入驻的查看全部页面
             case R.id.more_new_rz:
