@@ -1,6 +1,5 @@
 package zpe.jiakeyi.com.zhanpaieaw.activity.buy;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -9,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
@@ -20,10 +20,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.kongzue.baseframework.BaseActivity;
 import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
 import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
@@ -39,11 +39,11 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-import chihane.jdaddressselector.model.City;
 import zpe.jiakeyi.com.zhanpaieaw.R;
-import zpe.jiakeyi.com.zhanpaieaw.activity.MainActivity;
+import zpe.jiakeyi.com.zhanpaieaw.adapter.ReleaseAdapter;
 import zpe.jiakeyi.com.zhanpaieaw.bean.CityBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
 import zpe.jiakeyi.com.zhanpaieaw.utils.ToastUtlis;
@@ -73,7 +73,6 @@ public class ReleaseForAty extends BaseActivity {
     private LinearLayout ll;
     private ImageView release_imag_camera;
     private AutoRelativeLayout release_rl_classify;
-    private AlertDialog dialog;
     private View view;
     private RecyclerView dialog_recyclerView;
     private static TextView auto_tv_ch;
@@ -88,14 +87,18 @@ public class ReleaseForAty extends BaseActivity {
     private EditText et_qq;
     private EditText et_weixin;
     private final String items[] = {"实验室仪器", "服务", "家具", "仪器与耗材"};
+    private List<String> list;
     private int with = 1;
     private List<String> imgs;
-
+    private AlertDialog dialog;
+    private ReleaseAdapter releaseAdapter;
     @Override
     public void initViews() {
         auto_tv_ch = findViewById(R.id.auto_tv_ch);
+        list = new ArrayList<>();
         view = LayoutInflater.from(me).inflate(R.layout.dialog_my_classify, null);
         dialog_recyclerView = view.findViewById(R.id.dialog_recyclerView);
+        dialog_recyclerView.setLayoutManager(new LinearLayoutManager(me));
         fenlei_tv = findViewById(R.id.fenlei_tv);
         et_title = findViewById(R.id.et_title);
         et_account = findViewById(R.id.et_account);
@@ -111,6 +114,15 @@ public class ReleaseForAty extends BaseActivity {
         text_camera = contentView.findViewById(R.id.text_camera);
         text_photo = contentView.findViewById(R.id.text_photo);
         text_finish = contentView.findViewById(R.id.text_finish);
+        list.add(items[0]);
+        list.add(items[1]);
+        list.add(items[2]);
+        list.add(items[3]);
+        releaseAdapter = new ReleaseAdapter(R.layout.item_dialog_release,list);
+        dialog_recyclerView.setAdapter(releaseAdapter);
+        dialog = new AlertDialog.Builder(me)
+                .setView(view)
+                .create();
 
     }
 
@@ -230,6 +242,14 @@ public class ReleaseForAty extends BaseActivity {
                 lighton();
             }
         });
+        //对话框上的点击事件
+        releaseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                toast(list.get(position));
+                dialog.dismiss();
+            }
+        });
     }
 
 
@@ -318,21 +338,7 @@ public class ReleaseForAty extends BaseActivity {
     }
 
     private void dialogChoice() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(me);
-        builder.setSingleChoiceItems(items, 0,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                fenlei_tv.setText(items[which]);
-                dialog.dismiss();
-            }
-        });
-        builder.create().show();
+        dialog.show();
     }
 
     private void ImgPost(File file) {
