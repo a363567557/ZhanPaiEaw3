@@ -48,10 +48,11 @@ public class MassageFragment extends BaseFragment {
 
     @Override
     public void initDatas() {
-        lists.add("系统信息");
+        auto_ll.setY(me.getStatusBarHeight());
         lists.add("用户信息");
-        data.add(new SystemFragment());
+        lists.add("系统信息");
         data.add(new UserFragment());
+        data.add(new SystemFragment());
         MyCollectFragmentAdapter myAdaptre = new MyCollectFragmentAdapter(getChildFragmentManager(), data, lists);
         viewpager.setAdapter(myAdaptre);
         viewpager.setCurrentItem(0);

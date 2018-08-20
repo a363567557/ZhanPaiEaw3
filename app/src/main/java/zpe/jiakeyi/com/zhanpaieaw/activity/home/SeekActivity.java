@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,6 +45,8 @@ public class SeekActivity extends BaseActivity {
     private ImageView return_img_seek;
     private FlexboxLayout flexbox_layout;
     private FlexboxLayout flexbox_layout_hot;
+    private TextView seek_go_tv;
+    private EditText seek_et;
     private FlexboxLayout flexbox_layout_history;
 
 
@@ -53,7 +56,8 @@ public class SeekActivity extends BaseActivity {
         return_img_seek = (ImageView) findViewById(R.id.return_img_seek);
         flexbox_layout_hot = (FlexboxLayout) findViewById(R.id.flexbox_layout_hot);
         flexbox_layout_history = (FlexboxLayout) findViewById(R.id.flexbox_layout_history);
-
+        seek_go_tv = findViewById(R.id.seek_go_tv);
+        seek_et = findViewById(R.id.seek_et);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -105,6 +109,12 @@ public class SeekActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        seek_go_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(SeekShowActivity.class, new JumpParameter().put("TextContent", seek_et.getText().toString()));
             }
         });
     }

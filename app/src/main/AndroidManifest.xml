@@ -80,10 +80,15 @@
         <activity android:name=".activity.my.MyBuyActivity" />
         <!-- 求购解决 -->
         <activity android:name=".activity.buy.BuyToSolveActivity" />
+        <!-- 城市选择 -->
         <activity android:name=".activity.buy.CitySelectionActivity" />
+        <!-- 升级页面 -->
         <activity android:name=".activity.LoadingActivity" />
+        <!-- 设置页面 -->
         <activity android:name=".activity.my.SettingActivity" />
-        <activity android:name=".activity.my.BuyBuyActivity"></activity>
+        <!-- 我的收藏 -->
+        <activity android:name=".activity.my.BuyBuyActivity" />
+        <activity android:name=".activity.home.SeekShowActivity"></activity>
     </application>
 
 </manifest>

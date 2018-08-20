@@ -1,21 +1,21 @@
 package zpe.jiakeyi.com.zhanpaieaw.fragment;
 
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.kongzue.baseframework.BaseFragment;
 import com.kongzue.baseframework.interfaces.Layout;
-import com.kongzue.baseframework.util.JumpParameter;
 import com.zhy.autolayout.AutoLinearLayout;
 
-import mlxy.utils.S;
 import zpe.jiakeyi.com.zhanpaieaw.R;
 import zpe.jiakeyi.com.zhanpaieaw.activity.LoadingActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.home.ShowActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.login.LoginActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.BuyBuyActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.HellpActivity;
-import zpe.jiakeyi.com.zhanpaieaw.activity.my.ManagementActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.MyBuyActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.PersonalActivity;
 import zpe.jiakeyi.com.zhanpaieaw.activity.my.SettingActivity;
@@ -171,5 +171,4 @@ public class MyFragment extends BaseFragment {
         });
 
     }
-
 }

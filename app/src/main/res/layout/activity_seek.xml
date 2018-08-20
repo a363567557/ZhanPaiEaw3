@@ -34,6 +34,7 @@
                 android:src="@mipmap/icon_11" />
 
             <EditText
+                android:id="@+id/seek_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="24px"
@@ -43,6 +44,7 @@
         </com.zhy.autolayout.AutoLinearLayout>
 
         <TextView
+            android:id="@+id/seek_go_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="32px"

@@ -24,6 +24,11 @@ import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectAdapter2;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.my.CollectBoothFragment;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.my.MyCollectFragment;
 
+/**
+ * @author Gjianfu
+ * @date 2018/8/20
+ * 功能描述:我的收藏
+ */
 @Layout(R.layout.activity_buy_buy)
 @DarkStatusBarTheme(true) //开启顶部状态栏图标、文字暗色模式
 public class BuyBuyActivity extends BaseActivity {

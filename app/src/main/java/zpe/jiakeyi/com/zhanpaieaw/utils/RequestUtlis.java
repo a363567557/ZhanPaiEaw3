@@ -105,6 +105,8 @@ public class RequestUtlis {
     public final static String getP = HttpUrl + "/fp/getP";
     //获取收藏列表
     public final static String selCollP = HttpUrl + "/fp/selCollP";
+    //搜索
+    public final static String selPWeb = HttpUrl + "/fp/selPWeb";
     /**
      * 城市选择模块
      */

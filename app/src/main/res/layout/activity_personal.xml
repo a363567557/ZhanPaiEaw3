@@ -39,6 +39,7 @@
         <include layout="@layout/bg_view_1" />
 
         <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/image_setting"
             android:layout_width="match_parent"
             android:layout_height="160px"
             android:gravity="center_vertical"
@@ -107,6 +108,7 @@
         <include layout="@layout/bg_view_1" />
 
         <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/sex_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -140,6 +142,7 @@
         <include layout="@layout/bg_view_1" />
 
         <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/phone_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -156,6 +159,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/phone_set_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -201,6 +205,7 @@
         <include layout="@layout/bg_view_10" />
 
         <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/wencht_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -217,6 +222,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/is_checked_wx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -251,6 +257,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/is_check_qq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
