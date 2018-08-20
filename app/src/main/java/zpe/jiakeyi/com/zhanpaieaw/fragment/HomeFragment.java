@@ -52,7 +52,7 @@ import zpe.jiakeyi.com.zhanpaieaw.view.ObservableScrollView;
  * @author dell-pc
  */
 @Layout(R.layout.fragment_home)
-public class HomeFragment extends BaseFragment implements View.OnClickListener, ObservableScrollView.ScrollViewListener {
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private ObservableScrollView home_obs_scroll;
     private AutoLinearLayout auto_sousuo;
     private XBanner xbanner;
@@ -72,7 +72,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private RecyclerView Recycler_home_new;
     private TextView more_tj;
     private RecyclerView Recycler_home_recommend;
-    private AutoLinearLayout seek_layout;
+    private AutoLinearLayout seek_layout,home_auto_ll_title;
 
     private static List<HomeBean.DataBean.Adv1Bean> list;
     private static List<HomeBean.DataBean.ProductListBean> recommend;
@@ -85,6 +85,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void initViews() {
+        home_auto_ll_title = findViewById(R.id.home_auto_ll_title);
         home_obs_scroll = findViewById(R.id.home_obs_scroll);
         xbanner = findViewById(R.id.xbanner);
         marqueeView2 = findViewById(R.id.marqueeView2);
@@ -101,7 +102,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         Recycler_home_recommend = findViewById(R.id.Recycler_home_recommend);
         auto_sousuo = findViewById(R.id.auto_sousuo);
         me.setDarkStatusBarTheme(true);//白色
-        home_obs_scroll.setScrollViewListener(HomeFragment.this);
         list = new ArrayList<>();
         recommend = new ArrayList<>();
         exhibition = new ArrayList<>();
@@ -118,6 +118,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     public void requestData() {
+
+        home_auto_ll_title.setY(me.getStatusBarHeight());
+
         OkHttpUtils
                 .post()
                 .addParams("", "")
@@ -140,9 +143,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                         for (int i = 0; i < list.size(); i++) {
                             images.add(list.get(i).getUrl());
                         }
-                        auto_sousuo.setY(me.getStatusBarHeight());
-
-
                         //实例化
 
                         Log.i("11", "initDatas: " + images.get(1));
@@ -283,15 +283,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 jump(SeekActivity.class);
                 break;
             default:
-        }
-    }
-
-    @Override
-    public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
-        if (y > -me.getStatusBarHeight() && y <= 450) {
-            me.setDarkStatusBarTheme(false);//黑色
-        } else {
-            me.setDarkStatusBarTheme(true);//白色
         }
     }
 }
