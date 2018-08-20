@@ -6,7 +6,14 @@ import android.view.View;
 import android.widget.Button;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
-
+/**
+ * 创建人： Nine tails fox
+ * 创建时间： 2018/8/17 10:38
+ * 功能描述：自己写
+ * 联系方式：1037438704@qq.com
+ *
+ * @author dell-pc
+ */
 public class LoadingActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button but;
@@ -30,6 +37,7 @@ public class LoadingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.but:
                 finish();
                 break;
+                default:
         }
     }
 }

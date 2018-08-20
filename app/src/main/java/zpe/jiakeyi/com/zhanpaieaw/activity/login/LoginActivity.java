@@ -35,10 +35,7 @@ import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
  */
 
 @Layout(R.layout.activity_login)
-@DarkStatusBarTheme(false) //开启顶部状态栏图标、文字暗色模式
-@NavigationBarBackgroundColor(a = 255, r = 255, g = 255, b = 255)
-//透明颜色   设置底部导航栏背景颜色（a = 255,r = 255,g = 255,b = 255 黑色的)
-@DarkNavigationBarTheme(true) //开启底部导航栏按钮暗色模式
+@DarkStatusBarTheme(true) //开启顶部状态栏图标、文字暗色模式
 public class LoginActivity extends BaseActivity {
     private TextView login_text_verification;
     private TextView text_register;

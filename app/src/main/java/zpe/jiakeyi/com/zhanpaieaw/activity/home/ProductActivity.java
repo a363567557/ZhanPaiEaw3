@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.kongzue.baseframework.BaseActivity;
+import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.util.JumpParameter;
 import com.squareup.okhttp.Request;
@@ -33,6 +34,7 @@ import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
  * 功能描述:商品详情界面
  */
 @Layout(R.layout.activity_product)
+@DarkStatusBarTheme(true)
 public class ProductActivity extends BaseActivity {
 
     private WebView web_product;

@@ -48,7 +48,6 @@ public class MassageFragment extends BaseFragment {
 
     @Override
     public void initDatas() {
-        auto_ll.setY(me.getStatusBarHeight());
         lists.add("系统信息");
         lists.add("用户信息");
         data.add(new SystemFragment());

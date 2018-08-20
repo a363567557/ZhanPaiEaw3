@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.kongzue.baseframework.BaseActivity;
+import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.util.JumpParameter;
 
@@ -16,6 +17,7 @@ import zpe.jiakeyi.com.zhanpaieaw.R;
  * 功能描述:用户名
  */
 @Layout(R.layout.activity_user_name)
+@DarkStatusBarTheme(true)
 public class UserNameActivity extends BaseActivity {
     private ImageView image_finish;
 

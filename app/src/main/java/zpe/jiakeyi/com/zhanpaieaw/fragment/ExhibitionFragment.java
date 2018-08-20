@@ -1,8 +1,6 @@
 package zpe.jiakeyi.com.zhanpaieaw.fragment;
 
 
-import android.content.Intent;
-
 import com.kongzue.baseframework.BaseFragment;
 import com.kongzue.baseframework.interfaces.Layout;
 

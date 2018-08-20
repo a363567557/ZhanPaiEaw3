@@ -26,9 +26,7 @@ import zpe.jiakeyi.com.zhanpaieaw.view.NoSrcollViewPage;
  * 功能描述:我的求购
  */
 @Layout(R.layout.activity_main3)
-@DarkStatusBarTheme(false)           //开启顶部状态栏图标、文字暗色模式
-@DarkNavigationBarTheme(true)       //开启底部导航栏按钮暗色模式
-@NavigationBarBackgroundColor(a = 0, r = 0, g = 0, b = 0)
+@DarkStatusBarTheme(true)
 public class MyBuyActivity extends BaseActivity {
     private TabLayout tablayout_xiaoxi;
     private NoSrcollViewPage viewpager;

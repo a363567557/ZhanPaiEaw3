@@ -23,9 +23,7 @@ import zpe.jiakeyi.com.zhanpaieaw.R;
  */
 
 @Layout(R.layout.managementactivity)
-@DarkStatusBarTheme(false)           //开启顶部状态栏图标、文字暗色模式
-@DarkNavigationBarTheme(true)       //开启底部导航栏按钮暗色模式
-@NavigationBarBackgroundColor(a = 0, r = 0, g = 0, b = 0)
+@DarkStatusBarTheme(true)
 public class ManagementActivity extends BaseActivity {
 
     private ImageView ll_lmage_1;

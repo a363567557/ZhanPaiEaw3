@@ -1,7 +1,6 @@
 package zpe.jiakeyi.com.zhanpaieaw.activity.login;
 
 
-import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -12,29 +11,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.kongzue.baseframework.BaseActivity;
-import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
 import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
-import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
 import com.squareup.okhttp.Request;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
-import com.google.gson.Gson;
-
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import mlxy.utils.S;
 import zpe.jiakeyi.com.zhanpaieaw.R;
 import zpe.jiakeyi.com.zhanpaieaw.bean.loginBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.HttpUtlis;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
-
-import static zpe.jiakeyi.com.zhanpaieaw.utils.HttpUtlis.code;
 
 /**
  * 创建人： 郭健福
@@ -45,9 +38,9 @@ import static zpe.jiakeyi.com.zhanpaieaw.utils.HttpUtlis.code;
  */
 @Layout(R.layout.activity_register)
 @DarkStatusBarTheme(false) //开启顶部状态栏图标、文字暗色模式
-@NavigationBarBackgroundColor(a = 255, r = 255, g = 255, b = 255)
-//透明颜色   设置底部导航栏背景颜色（a = 255,r = 255,g = 255,b = 255 黑色的)
-@DarkNavigationBarTheme(true) //开启底部导航栏按钮暗色模式
+//@NavigationBarBackgroundColor(a = 255, r = 255, g = 255, b = 255)
+////透明颜色   设置底部导航栏背景颜色（a = 255,r = 255,g = 255,b = 255 黑色的)
+//@DarkNavigationBarTheme(true) //开启底部导航栏按钮暗色模式
 public class RegisterActivity extends BaseActivity {
 
     private ImageView image_return;

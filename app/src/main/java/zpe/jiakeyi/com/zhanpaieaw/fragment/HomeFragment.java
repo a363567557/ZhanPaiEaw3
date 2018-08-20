@@ -118,9 +118,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     public void requestData() {
-
-        home_auto_ll_title.setY(me.getStatusBarHeight());
-
         OkHttpUtils
                 .post()
                 .addParams("", "")

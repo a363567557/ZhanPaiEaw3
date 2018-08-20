@@ -23,9 +23,7 @@ import zpe.jiakeyi.com.zhanpaieaw.adapter.MyCollectAdapter2;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.my.DownloadFragment;
 
 @Layout(R.layout.activity_main2)
-@DarkStatusBarTheme(false)           //开启顶部状态栏图标、文字暗色模式
-@DarkNavigationBarTheme(true)       //开启底部导航栏按钮暗色模式
-@NavigationBarBackgroundColor(a = 0, r = 0, g = 0, b = 0)
+@DarkStatusBarTheme(true)           //开启顶部状态栏图标、文字暗色模式
 public class BuyToSolveActivity extends BaseActivity {
 
     private TabLayout tablayout_xiaoxi;

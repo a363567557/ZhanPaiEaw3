@@ -15,7 +15,14 @@ import com.zhy.autolayout.AutoLinearLayout;
 import zpe.jiakeyi.com.zhanpaieaw.R;
 import zpe.jiakeyi.com.zhanpaieaw.activity.MainActivity;
 
-
+/**
+ * 创建人： Nine tails fox
+ * 创建时间： 2018/8/17 10:38
+ * 功能描述：这个界面是干啥的
+ * 联系方式：1037438704@qq.com
+ *
+ * @author dell-pc
+ */
 public class ExhibitionActivity extends UnityPlayerActivity {
 
     private AutoLinearLayout scan;

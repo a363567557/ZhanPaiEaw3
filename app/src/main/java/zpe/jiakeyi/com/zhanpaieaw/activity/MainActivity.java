@@ -28,11 +28,7 @@ import zpe.jiakeyi.com.zhanpaieaw.fragment.MyFragment;
  */
 @Layout(R.layout.activity_main)
 @DarkStatusBarTheme(true) //开启顶部状态栏图标、文字暗色模式
-@NavigationBarBackgroundColor(a = 255, r = 255, g = 255, b = 255)
-//透明颜色   设置底部导航栏背景颜色（a = 255,r = 255,g = 255,b = 255 黑色的)
-@DarkNavigationBarTheme(false) //开启底部导航栏按钮暗色模式
 public class MainActivity extends com.kongzue.baseframework.BaseActivity implements RadioGroup.OnCheckedChangeListener {
-
     private AutoFrameLayout frameLayout;
     private RadioButton tabHome;
     private RadioButton tabExhibition;

@@ -100,7 +100,6 @@ public class MyFragment extends BaseFragment {
                 if (RequestUtlis.Token != null) {
                     //收藏界面
                     jump(BuyBuyActivity.class);
-
                 } else {
                     jump(LoginActivity.class);
                 }

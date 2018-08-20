@@ -29,7 +29,6 @@ import zpe.jiakeyi.com.zhanpaieaw.fragment.buy.BuyAddFragment;
  */
 @Layout(R.layout.fragment_buy)
 public class BuyFragment extends BaseFragment{
-    private ImageView title_back;
     private TextView title_name;
     private ImageView title_seek;
     private TabLayout tab_news;
@@ -44,7 +43,6 @@ public class BuyFragment extends BaseFragment{
     public void initViews() {
         me.setDarkStatusBarTheme(true);
         at_ll_title = findViewById(R.id.at_ll_title);
-        title_back = findViewById(R.id.title_back);
         title_name = findViewById(R.id.title_name);
         title_seek = findViewById(R.id.title_seek);
         tab_news = findViewById(R.id.tab_news);
@@ -55,7 +53,6 @@ public class BuyFragment extends BaseFragment{
 
     @Override
     public void initDatas() {
-        at_ll_title.setY(me.getStatusBarHeight());
         ArrayList<Fragment> datas = new ArrayList<Fragment>();
         titles = new ArrayList<String>();
         titles.add("全部");
@@ -79,12 +76,6 @@ public class BuyFragment extends BaseFragment{
 
     @Override
     public void setEvents() {
-        title_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jump(SeekActivity.class);
-            }
-        });
         //跳转到发布界面
         img_issue.setOnClickListener(new View.OnClickListener() {
             @Override
