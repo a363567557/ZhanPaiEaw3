@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
 import zpe.jiakeyi.com.zhanpaieaw.activity.buy.ReleaseForAty;
+import zpe.jiakeyi.com.zhanpaieaw.activity.home.SeekActivity;
 import zpe.jiakeyi.com.zhanpaieaw.adapter.MyPagerAdapter;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.buy.BuyAddFragment;
 
@@ -78,6 +79,12 @@ public class BuyFragment extends BaseFragment{
 
     @Override
     public void setEvents() {
+        title_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(SeekActivity.class);
+            }
+        });
         //跳转到发布界面
         img_issue.setOnClickListener(new View.OnClickListener() {
             @Override

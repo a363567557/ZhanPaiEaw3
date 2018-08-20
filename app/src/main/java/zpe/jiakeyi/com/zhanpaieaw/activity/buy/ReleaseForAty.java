@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -63,6 +64,7 @@ import static android.media.MediaRecorder.VideoSource.CAMERA;
 //透明颜色   设置底部导航栏背景颜色（a = 255,r = 255,g = 255,b = 255 黑色的)
 @DarkNavigationBarTheme(true) //开启底部导航栏按钮暗色模式
 public class ReleaseForAty extends BaseActivity {
+    private static int imagename;
     private static final int PICTURE = 200;
     private TextView rf_tv_fabu;
     private TextView text_camera;
@@ -273,7 +275,7 @@ public class ReleaseForAty extends BaseActivity {
             log(data);
             // 获取相机返回的数据，并转换为图片格式
             Bitmap bitmap = (Bitmap) bundle.get("data");
-            saveBitmapFile(bitmap);
+            ImgPost(null, bitmap);
 //            toastUtlis(bitmap, null);
 
             // TODO 图片从这里拿
@@ -284,7 +286,7 @@ public class ReleaseForAty extends BaseActivity {
              * 调用图库
              */
             Uri selectedImage = data.getData();
-            log(selectedImage);
+            ImgPost(new File(selectedImage + ""), null);
             // TODO 图片从这里拿
 //            Glide.with(this).load(selectedImage).apply(new RequestOptions().circleCrop()).into(imagView);
         }
@@ -304,18 +306,6 @@ public class ReleaseForAty extends BaseActivity {
         ToastUtlis.showImageToast(me, ll);
     }
 
-    public void saveBitmapFile(Bitmap bitmap) {
-
-        File file = new File("/mnt/sdcard/zhanpai/01.png");//将要保存图片的路径
-        try {
-            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-            bos.flush();
-            bos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void dialogChoice() {
         AlertDialog.Builder builder = new AlertDialog.Builder(me);
@@ -335,7 +325,51 @@ public class ReleaseForAty extends BaseActivity {
         builder.create().show();
     }
 
-    private void ImgPost(File file) {
+    private void ImgPost(@Nullable File file, @Nullable Bitmap bitmap) {
+        imagename = imagename++;
+        if (file == null) {
+            file = new File("/mnt/sdcard/zhanpai/" + imagename + "01.png");//将要保存图片的路径
+            OkHttpUtils.post()
+                    .url(RequestUtlis.singleUploadImg)
+                    .addFile("file", imagename + "01.png", file)
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                            log(e + "");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            Log.i("图片上传", "onResponse: " + response);
+                        }
+                    });
+        } else {
+            OkHttpUtils.post()
+                    .url(RequestUtlis.singleUploadImg)
+                    .addFile("file", imagename + "01.png", file)
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                            log(e + "");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            Log.i("图片上传", "onResponse: " + response);
+                        }
+                    });
+
+        }
+        try {
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            bos.flush();
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
