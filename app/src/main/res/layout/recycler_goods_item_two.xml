@@ -15,11 +15,11 @@
 
     <TextView
         android:id="@+id/tv_recycler_goods_two"
-        android:layout_width="140px"
+        android:layout_width="130px"
         android:layout_height="wrap_content"
         android:layout_marginTop="10px"
         android:gravity="center"
         android:text="超声波清洗器"
         android:textColor="#333333"
-        android:textSize="20px" />
+        android:textSize="24px" />
 </com.zhy.autolayout.AutoLinearLayout>

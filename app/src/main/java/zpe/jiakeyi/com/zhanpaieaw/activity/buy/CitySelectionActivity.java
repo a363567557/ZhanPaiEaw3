@@ -94,9 +94,9 @@ public class CitySelectionActivity extends BaseActivity {
         queren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReleaseForAty.setSheng(Sheng);
-                ReleaseForAty.setShi(Shi);
-                ReleaseForAty.setQu(Qu);
+                setResponse(new JumpParameter().put("省", Sheng)
+                        .put("市", Shi)
+                        .put("区", Qu));
                 finish();
             }
         });
@@ -166,6 +166,7 @@ public class CitySelectionActivity extends BaseActivity {
                                                     Sheng = list.get(position1);
                                                     Shi = list.get(position1).getList().get(position2);
                                                     Qu = list.get(position1).getList().get(position2).getList().get(position3);
+
                                                 }
                                             });
                                         }

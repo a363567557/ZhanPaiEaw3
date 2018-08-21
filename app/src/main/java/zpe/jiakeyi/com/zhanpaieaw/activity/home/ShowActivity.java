@@ -30,6 +30,7 @@ import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
+import com.kongzue.baseframework.util.OnResponseListener;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
@@ -43,8 +44,10 @@ import chihane.jdaddressselector.model.County;
 import chihane.jdaddressselector.model.Province;
 import chihane.jdaddressselector.model.Street;
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.activity.buy.CitySelectionActivity;
 import zpe.jiakeyi.com.zhanpaieaw.adapter.MyPopuWindowAdapter;
 import zpe.jiakeyi.com.zhanpaieaw.adapter.ShowRecyclerAdapter;
+import zpe.jiakeyi.com.zhanpaieaw.bean.CityBean;
 import zpe.jiakeyi.com.zhanpaieaw.bean.ShowTypeBean;
 import zpe.jiakeyi.com.zhanpaieaw.bean.TextBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.HttpUtlis;
@@ -69,6 +72,9 @@ public class ShowActivity extends BaseActivity {
     private AutoLinearLayout seek_title;
     private AutoLinearLayout address_show;
     private ImageView search_title;
+    private CityBean.ListBeanXX sheng;
+    private CityBean.ListBeanXX.ListBeanX shi;
+    private CityBean.ListBeanXX.ListBeanX.ListBean qu;
     /**
      * PoupWindow 中的列表
      */
@@ -94,13 +100,11 @@ public class ShowActivity extends BaseActivity {
 
     @Override
     public void initViews() {
-//        HttpUtlis.registerDate_Screening("10","0","","","","","","");
         return_img_seek = findViewById(R.id.return_img_seek);
         classify_title = findViewById(R.id.classify_title);
         seek_title_layout = findViewById(R.id.seek_title_layout);
         recycle_show_home = findViewById(R.id.recycle_show_home);
         recycle_show_home.setLayoutManager(new GridLayoutManager(me, 2, OrientationHelper.VERTICAL, false));
-        recycle_show_home.addItemDecoration(new DividerGridItemDecoration(this));
         showRecyclerAdapter = new ShowRecyclerAdapter(me);
         recycle_show_home.setAdapter(showRecyclerAdapter);
         show_zonghe = findViewById(R.id.show_zonghe);
@@ -208,23 +212,18 @@ public class ShowActivity extends BaseActivity {
         address_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddressSelector selector = new AddressSelector(me);
-                selector.setOnAddressSelectedListener(new OnAddressSelectedListener() {
+                jump(CitySelectionActivity.class, new OnResponseListener() {
                     @Override
-                    public void onAddressSelected(Province province, City city, County county, Street street) {
+                    public void OnResponse(JumpParameter jumpParameter) {
+                        if (jumpParameter == null) {
 
+                        } else {
+                            sheng = (CityBean.ListBeanXX) jumpParameter.get("省");
+                            shi = (CityBean.ListBeanXX.ListBeanX) jumpParameter.get("市");
+                            qu = (CityBean.ListBeanXX.ListBeanX.ListBean) jumpParameter.get("区");
+                        }
                     }
                 });
-
-                View view = selector.getView();
-                BottomDialog dialog = new BottomDialog(me);
-                dialog.setOnAddressSelectedListener(new OnAddressSelectedListener() {
-                    @Override
-                    public void onAddressSelected(Province province, City city, County county, Street street) {
-
-                    }
-                });
-                dialog.show();
             }
         });
     }

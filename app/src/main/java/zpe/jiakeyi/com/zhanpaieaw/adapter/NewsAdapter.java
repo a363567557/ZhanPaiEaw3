@@ -36,8 +36,8 @@ public class NewsAdapter extends BaseQuickAdapter<NewsListBean.DataBean.ListBean
         AutoLinearLayout news_layout = helper.itemView.findViewById(R.id.news_layout);
         helper.addOnClickListener(R.id.news_layout);
         title_news.setText(item.getIntro());
-        look_news_tv.setText(item.getPageView()+"人浏览");
-        time_news_tv.setText(item.getCreateTime());
+        look_news_tv.setText(item.getPageView() + "人浏览");
+        time_news_tv.setText(item.getCreateTime().substring(0, 16));
     }
 
 }

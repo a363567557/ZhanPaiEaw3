@@ -29,29 +29,33 @@
 
             <TextView
                 android:id="@+id/title_news"
-                android:layout_width="380px"
+                android:layout_width="wrap_content"
                 android:layout_height="130px"
                 android:text="山大啊实打实大萨达撒擦拭发生发的萨芬撒飞洒发撒飞洒发撒飞洒发撒飞洒发萨芬撒飞洒"
-                android:textColor="#333333" />
+                android:textColor="#333333"
+                android:textSize="32px"
+                android:textStyle="bold" />
 
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/look_news_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="530人浏览"
+                    android:text="1111人浏览"
                     android:textColor="#666666"
                     android:textSize="24px" />
 
+
                 <TextView
                     android:id="@+id/time_news_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300px"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="100px"
+                    android:layout_marginLeft="60px"
                     android:text="2018-07-07  16:23"
                     android:textColor="#666666"
                     android:textSize="24px" />

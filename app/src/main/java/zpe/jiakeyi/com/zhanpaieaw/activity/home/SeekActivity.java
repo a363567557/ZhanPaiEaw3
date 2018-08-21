@@ -2,6 +2,8 @@ package zpe.jiakeyi.com.zhanpaieaw.activity.home;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.Gravity;
@@ -71,7 +73,7 @@ public class SeekActivity extends BaseActivity {
         layoutParams.setMargins(10, 0, 10, 10);//4个参数按顺序分别是左上右下
         textView.setLayoutParams(layoutParams);
         textView.setText(s);
-        textView.setTextSize(18);
+        textView.setTextSize(12);
         textView.setGravity(Gravity.CENTER);
         textView.setPadding(30, 0, 30, 0);
         textView.setTextColor(R.color.seekColorText);
@@ -128,13 +130,13 @@ public class SeekActivity extends BaseActivity {
         textView.setBackground(getResources().getDrawable(R.drawable.shape_corner_seek));
         textView.setLayoutParams(new FlexboxLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(10, 10, 10, 10);//4个参数按顺序分别是左上右下
+        layoutParams.setMargins(25, 15, 25, 15);//4个参数按顺序分别是左上右下
         textView.setLayoutParams(layoutParams);
         textView.setText(s);
-        textView.setTextSize(18);
+        textView.setTextSize(16);
         textView.setGravity(Gravity.CENTER);
-        textView.setPadding(30, 0, 30, 0);
-        textView.setTextColor(R.color.seekColorText);
+        textView.setPadding(30, 20, 30, 20);
+        textView.setTextColor(R.color.TextColor);
         flexbox_layout_hot.addView(textView);
     }
 

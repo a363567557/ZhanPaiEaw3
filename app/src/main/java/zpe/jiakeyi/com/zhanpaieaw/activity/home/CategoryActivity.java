@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
@@ -44,6 +45,7 @@ public class CategoryActivity extends com.kongzue.baseframework.BaseActivity imp
 
 
     private ImageView img_search_category;
+    private TextView title_name_home;
     private ImageView fh_fl;
     private CategoryListAdapter categoryListAdapter;
     private List<sysBean.DataBean.ListBeanXX> mDatas;
@@ -63,8 +65,9 @@ public class CategoryActivity extends com.kongzue.baseframework.BaseActivity imp
                 finish();
             }
         });
-        img_search_category.setOnClickListener(this);
+
         listview_category = (ListView) findViewById(R.id.listview_category);
+        title_name_home = (TextView) findViewById(R.id.title_name_home);
         listview_category.setOnItemClickListener(this);
 
 
@@ -72,7 +75,25 @@ public class CategoryActivity extends com.kongzue.baseframework.BaseActivity imp
 
     @Override
     public void initDatas(JumpParameter paramer) {
-        String type = paramer.getString("类型");
+        final String type = paramer.getString("类型");
+        switch (type) {
+            case "1":
+                title_name_home.setText("实验室仪器");
+                break;
+            case "2":
+                title_name_home.setText("实验室服务");
+
+                break;
+            case "3":
+                title_name_home.setText("实验室家具");
+
+                break;
+
+            case "4":
+                title_name_home.setText("试剂与耗材");
+
+                break;
+        }
         OkHttpUtils
                 .post()
                 .url(RequestUtlis.sTs)
@@ -102,6 +123,12 @@ public class CategoryActivity extends com.kongzue.baseframework.BaseActivity imp
 
     @Override
     public void setEvents() {
+        img_search_category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(SeekActivity.class);
+            }
+        });
 
     }
 

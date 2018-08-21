@@ -31,6 +31,7 @@ import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
 import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
+import com.kongzue.baseframework.util.OnResponseListener;
 import com.squareup.okhttp.Request;
 import com.zhy.autolayout.AutoRelativeLayout;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -62,6 +63,7 @@ import static android.media.MediaRecorder.VideoSource.CAMERA;
 @DarkStatusBarTheme(true) //开启顶部状态栏图标、文字暗色模式
 public class ReleaseForAty extends BaseActivity {
     private static int imagename;
+    private ImageView back_aty;
     private static final int PICTURE = 200;
     private TextView rf_tv_fabu;
     private TextView text_camera;
@@ -91,6 +93,7 @@ public class ReleaseForAty extends BaseActivity {
     private List<String> imgs;
     private AlertDialog dialog;
     private ReleaseAdapter releaseAdapter;
+
     @Override
     public void initViews() {
         auto_tv_ch = findViewById(R.id.auto_tv_ch);
@@ -107,6 +110,7 @@ public class ReleaseForAty extends BaseActivity {
         rf_tv_fabu = findViewById(R.id.rf_tv_fabu);
         release_imag_camera = findViewById(R.id.release_imag_camera);
         release_rl_classify = findViewById(R.id.release_rl_classify);
+        back_aty = findViewById(R.id.back_aty);
         // 用于PopupWindow的View
         ll = new LinearLayout(me);
         contentView = LayoutInflater.from(this).inflate(R.layout.layout_popuwindow, null, false);
@@ -117,7 +121,7 @@ public class ReleaseForAty extends BaseActivity {
         list.add(items[1]);
         list.add(items[2]);
         list.add(items[3]);
-        releaseAdapter = new ReleaseAdapter(R.layout.item_dialog_release,list);
+        releaseAdapter = new ReleaseAdapter(R.layout.item_dialog_release, list);
         dialog_recyclerView.setAdapter(releaseAdapter);
         dialog = new AlertDialog.Builder(me)
                 .setView(view)
@@ -172,19 +176,6 @@ public class ReleaseForAty extends BaseActivity {
                 });
     }
 
-    public static void setSheng(CityBean.ListBeanXX Sheng) {
-        city = "";
-    }
-
-    public static void setShi(CityBean.ListBeanXX.ListBeanX Sheng) {
-        Log.i("市区", "setShi: " + Sheng);
-        city = Sheng.getAreaName() + "  ";
-    }
-
-    public static void setQu(CityBean.ListBeanXX.ListBeanX.ListBean Sheng) {
-        city = city + Sheng.getAreaName();
-        auto_tv_ch.setText(city);
-    }
 
     @Override
     public void setEvents() {
@@ -192,7 +183,19 @@ public class ReleaseForAty extends BaseActivity {
         auto_tv_ch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jump(CitySelectionActivity.class);
+                jump(CitySelectionActivity.class, new OnResponseListener() {
+                    @Override
+                    public void OnResponse(JumpParameter jumpParameter) {
+                        if (jumpParameter == null) {
+                            toast("选择失败，请重试");
+                        } else {
+                            sheng = (CityBean.ListBeanXX) jumpParameter.get("省");
+                            shi = (CityBean.ListBeanXX.ListBeanX) jumpParameter.get("市");
+                            qu = (CityBean.ListBeanXX.ListBeanX.ListBean) jumpParameter.get("区");
+                            city = shi.getAreaName() + "   " + qu.getAreaName();
+                        }
+                    }
+                });
             }
         });
         //调用相机
@@ -249,8 +252,19 @@ public class ReleaseForAty extends BaseActivity {
                 dialog.dismiss();
             }
         });
+        back_aty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        auto_tv_ch.setText(city);
+    }
 
     private void windowCamera() {
         Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
