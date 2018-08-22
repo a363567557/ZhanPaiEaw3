@@ -89,7 +89,8 @@
         <!-- 我的收藏 -->
         <activity android:name=".activity.my.BuyBuyActivity" />
         <activity android:name=".activity.home.SeekShowActivity" />
-        <activity android:name=".activity.my.SexSettingActivity"></activity>
+        <activity android:name=".activity.my.SexSettingActivity" />
+        <activity android:name=".activity.my.BrowsingHistoryActivity"></activity>
     </application>
 
 </manifest>

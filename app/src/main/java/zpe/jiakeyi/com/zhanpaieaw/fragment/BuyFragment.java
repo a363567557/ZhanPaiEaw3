@@ -51,6 +51,7 @@ public class BuyFragment extends BaseFragment {
         vpa_news = findViewById(R.id.vpa_news);
         img_issue = findViewById(R.id.img_issue);
         myPagerAdapter = new MyPagerAdapter(me.getSupportFragmentManager());
+        title_name.setText("求购");
     }
 
     @Override

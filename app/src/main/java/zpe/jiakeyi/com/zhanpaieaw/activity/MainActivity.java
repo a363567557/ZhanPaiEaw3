@@ -5,14 +5,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.kongzue.baseframework.interfaces.DarkNavigationBarTheme;
+import com.kongzue.baseframework.BaseActivity;
 import com.kongzue.baseframework.interfaces.DarkStatusBarTheme;
 import com.kongzue.baseframework.interfaces.Layout;
-import com.kongzue.baseframework.interfaces.NavigationBarBackgroundColor;
 import com.kongzue.baseframework.util.JumpParameter;
 import com.zhy.autolayout.AutoFrameLayout;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.base.BaseAty;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.BuyFragment;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.ExhibitionFragment;
 import zpe.jiakeyi.com.zhanpaieaw.fragment.HomeFragment;
@@ -28,7 +28,7 @@ import zpe.jiakeyi.com.zhanpaieaw.fragment.MyFragment;
  */
 @Layout(R.layout.activity_main)
 @DarkStatusBarTheme(true) //开启顶部状态栏图标、文字暗色模式
-public class MainActivity extends com.kongzue.baseframework.BaseActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends BaseAty implements RadioGroup.OnCheckedChangeListener {
     private AutoFrameLayout frameLayout;
     private RadioButton tabHome;
     private RadioButton tabExhibition;

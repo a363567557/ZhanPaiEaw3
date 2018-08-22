@@ -8,6 +8,7 @@
         android:id="@+id/seek_title_layout"
         android:layout_width="match_parent"
         android:layout_height="96px"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

@@ -12,6 +12,7 @@ import com.kongzue.baseframework.util.JumpParameter;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
+import zpe.jiakeyi.com.zhanpaieaw.fragment.MassageFragment;
 
 /**
  * @author Gjianfu
@@ -42,8 +43,10 @@ public class HellpActivity extends BaseActivity {
         title_back = findViewById(R.id.title_back);
         title_name = findViewById(R.id.title_name);
         title_seek = findViewById(R.id.title_seek);
+        title_text_right = findViewById(R.id.title_text_right);
         title_name.setText("帮助中心");
         title_seek.setVisibility(View.GONE);
+        title_text_right.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -89,7 +92,12 @@ public class HellpActivity extends BaseActivity {
                 finish();
             }
         });
-
+        title_text_right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(MassageFragment.class);
+            }
+        });
     }
 
 }
