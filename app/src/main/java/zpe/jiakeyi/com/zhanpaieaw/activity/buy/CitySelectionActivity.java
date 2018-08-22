@@ -79,13 +79,12 @@ public class CitySelectionActivity extends BaseActivity {
     @Override
     public void initDatas(JumpParameter paramer) {
         qingqiu();
-//        string = Preferences.getInstance().getString(me, "chengshi", "chengshi");
-//        Log.d("zdl","==============="+string);
+        string = Preferences.getInstance().getString(me, "user", "user");
+        Log.d("zdl","========数据======="+string);
 //        逻辑处理
-//        if (string != null) {
-//            luoji(string);
-//
-//        }
+        if (string != null) {
+            luoji();
+        }
     }
 
 
@@ -94,9 +93,9 @@ public class CitySelectionActivity extends BaseActivity {
         queren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResponse(new JumpParameter().put("省", Sheng)
-                        .put("市", Shi)
-                        .put("区", Qu));
+//                ReleaseForAty.setSheng(Sheng);
+//                ReleaseForAty.setShi(Shi);
+//                ReleaseForAty.setQu(Qu);
                 finish();
             }
         });
@@ -132,29 +131,34 @@ public class CitySelectionActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response) {
-                        if (string == null) {
-//                            Log.d("zdl","======================开始存粗");
-//                            Preferences.getInstance().set(me, "chengshi", "chengshi", response);
-//                            Log.d("zdl","======================完成");
-                            string = response;
-                            Gson gson = new Gson();
-                            CityDataBean cityDataBean = gson.fromJson(string, CityDataBean.class);
-                            String info = cityDataBean.getData().getInfo();
-                            CityBean cityBean = gson.fromJson(info, CityBean.class);
-                            list = cityBean.getList();
-                            cityAdapter = new CityAdapter(R.layout.item_sheng, list);
-                            rtll_rv_sheng.setAdapter(cityAdapter);
-                            cityAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(BaseQuickAdapter adapter, View view, final int position1) {
-                                    list2 = CitySelectionActivity.this.list.get(position1).getList();
-                                    beanXAdapter = new BeanXAdapter(R.layout.item_sheng, list2);
-                                    rtll_rv_shi.setAdapter(beanXAdapter);
-                                    beanXAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                                        @Override
-                                        public void onItemClick(BaseQuickAdapter adapter, View view, final int position2) {
-                                            list3 = list2.get(position2).getList();
-                                            ListAdapter listAdapter = new ListAdapter(R.layout.item_sheng, list3);
+                        if (string == null){
+                            Log.d("zdl", "======================开始存粗"+response);
+                            Preferences.getInstance().set(me, "user", "user", response);
+                            Log.d("zdl", "======================完成");
+                        }
+                    }
+                });
+    }
+
+    private void luoji() {
+        Gson gson = new Gson();
+        CityDataBean cityDataBean = gson.fromJson(string, CityDataBean.class);
+        String info = cityDataBean.getData().getInfo();
+        CityBean cityBean = gson.fromJson(info, CityBean.class);
+        list = cityBean.getList();
+        cityAdapter = new CityAdapter(R.layout.item_sheng, list);
+        rtll_rv_sheng.setAdapter(cityAdapter);
+        cityAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, final int position1) {
+                list2 = CitySelectionActivity.this.list.get(position1).getList();
+                beanXAdapter = new BeanXAdapter(R.layout.item_sheng, list2);
+                rtll_rv_shi.setAdapter(beanXAdapter);
+                beanXAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(BaseQuickAdapter adapter, View view, final int position2) {
+                        list3 = list2.get(position2).getList();
+                        ListAdapter listAdapter = new ListAdapter(R.layout.item_sheng, list3);
 
                                             rtll_rv_qu.setAdapter(listAdapter);
                                             beanXAdapter.notifyDataSetChanged();
@@ -166,7 +170,6 @@ public class CitySelectionActivity extends BaseActivity {
                                                     Sheng = list.get(position1);
                                                     Shi = list.get(position1).getList().get(position2);
                                                     Qu = list.get(position1).getList().get(position2).getList().get(position3);
-
                                                 }
                                             });
                                         }
@@ -178,14 +181,8 @@ public class CitySelectionActivity extends BaseActivity {
                                         beanXAdapter.notifyDataSetChanged();
                                     }
 
-                                }
-                            });
-                        }
-                    }
-                });
+            }
+        });
     }
 
-    private void luoji(String string) {
-
-    }
 }
