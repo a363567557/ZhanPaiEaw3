@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android= "http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zpe.jiakeyi.com.zhanpaieaw">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -88,7 +88,8 @@
         <activity android:name=".activity.my.SettingActivity" />
         <!-- 我的收藏 -->
         <activity android:name=".activity.my.BuyBuyActivity" />
-        <activity android:name=".activity.home.SeekShowActivity"></activity>
+        <activity android:name=".activity.home.SeekShowActivity" />
+        <activity android:name=".activity.my.SexSettingActivity"></activity>
     </application>
 
 </manifest>

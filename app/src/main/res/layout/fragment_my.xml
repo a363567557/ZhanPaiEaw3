@@ -111,7 +111,7 @@
                     android:drawableLeft="@mipmap/my_icon_mark"
                     android:drawablePadding="30px"
                     android:text="浏览记录"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"
@@ -152,7 +152,7 @@
                     android:drawableLeft="@mipmap/my_icon_collection"
                     android:drawablePadding="30px"
                     android:text="我的收藏"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"
@@ -193,7 +193,7 @@
                     android:drawableLeft="@mipmap/my_icon_data"
                     android:drawablePadding="30px"
                     android:text="资料"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"
@@ -234,7 +234,7 @@
                     android:drawableLeft="@mipmap/my_icon_buy"
                     android:drawablePadding="30px"
                     android:text="我的求购"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"
@@ -268,7 +268,7 @@
                     android:drawableLeft="@mipmap/my_icon_setup"
                     android:drawablePadding="30px"
                     android:text="设置"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"
@@ -316,7 +316,7 @@
                     android:drawableLeft="@mipmap/my_icon_share"
                     android:drawablePadding="30px"
                     android:text="应用分享"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"
@@ -357,7 +357,7 @@
                     android:drawableLeft="@mipmap/my_icon_help"
                     android:drawablePadding="30px"
                     android:text="帮助中心"
-                    android:textSize="24px" />
+                    android:textSize="28px" />
 
                 <View
                     android:layout_width="0dp"

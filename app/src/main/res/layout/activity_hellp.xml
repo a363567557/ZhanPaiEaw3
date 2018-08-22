@@ -21,8 +21,10 @@
         android:textColor="@color/seekColorText" />
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/hellp_atll_booth1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -37,18 +39,18 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text=">" />
+            android:layout_marginRight="24px"
+            android:src="@mipmap/buy_icon_open" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/hellp_atll_booth2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -63,18 +65,19 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text=">" />
+            android:layout_marginRight="24px"
+            android:src="@mipmap/buy_icon_open" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/hellp_atll_booth3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -89,19 +92,19 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text=">" />
+            android:layout_marginRight="24px"
+            android:src="@mipmap/buy_icon_open" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
-        android:id="@+id/hellp_atll_booth"
+        android:id="@+id/hellp_atll_booth4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -116,18 +119,18 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text=">" />
+            android:layout_marginRight="24px"
+            android:src="@mipmap/buy_icon_open" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/hellp_atll_booth5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -142,13 +145,11 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text=">" />
+            android:layout_marginRight="24px"
+            android:src="@mipmap/buy_icon_open" />
     </com.zhy.autolayout.AutoLinearLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>

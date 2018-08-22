@@ -11,6 +11,7 @@
     <include layout="@layout/news_layout_title" />
     <include layout="@layout/bg_view_1" />
     <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -18,6 +19,7 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
     <TextView
+        android:id="@+id/content_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="      请检查网络连接情况，如网络连接正常可尝试刷新页面。若还未解决问题建议更换浏览器，推荐使用火狐、谷歌。" />

@@ -28,6 +28,7 @@ import zpe.jiakeyi.com.zhanpaieaw.R;
 import zpe.jiakeyi.com.zhanpaieaw.bean.loginBean;
 import zpe.jiakeyi.com.zhanpaieaw.utils.HttpUtlis;
 import zpe.jiakeyi.com.zhanpaieaw.utils.RequestUtlis;
+import zpe.jiakeyi.com.zhanpaieaw.utils.VerificationTime;
 
 /**
  * 创建人： 郭健福
@@ -51,6 +52,7 @@ public class RegisterActivity extends BaseActivity {
     private EditText register_code;
     private TextView register_find_code;
     private TextView register_button;
+    private VerificationTime verificationTime;
 
     @Override
     public void initViews() {
@@ -144,6 +146,7 @@ public class RegisterActivity extends BaseActivity {
                 if (register_phone_number.getText().toString() != null) {
                     boolean chinaPhoneLegal = isChinaPhoneLegal(register_phone_number.getText().toString());
                     if (chinaPhoneLegal) {
+                        verificationTime = (VerificationTime) new VerificationTime(60000, 1000, register_find_code).start();
                         OkHttpUtils.post().url(RequestUtlis.getCode)
                                 .addHeader("loginType", "1")
                                 .addParams("iphone", register_phone_number.getText().toString())

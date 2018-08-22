@@ -28,10 +28,11 @@
             android:layout_centerInParent="true"
             android:scrollbarSize="24px"
             app:tabGravity="fill"
+            app:tabIndicatorColor="#7700ff"
             app:tabIndicatorHeight="2dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#FF4081"
-            app:tabTextColor="#000"
+            app:tabSelectedTextColor="#333333"
+            app:tabTextColor="#333333"
             tools:ignore="MissingPrefix" />
     </RelativeLayout>
 

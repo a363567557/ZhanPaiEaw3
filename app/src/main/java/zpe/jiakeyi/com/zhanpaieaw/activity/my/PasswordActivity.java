@@ -13,14 +13,7 @@ import com.kongzue.baseframework.util.JumpParameter;
 
 import zpe.jiakeyi.com.zhanpaieaw.R;
 
-/**
- * 创建人： 九尾妖狐
- * 创建时间： 2018/1/18 9:32
- * 功能描述：修改密码
- * 联系方式：1037438704@qq.com
- *
- * @author dell-pc
- */
+
 @Layout(R.layout.activity_password)
 @DarkStatusBarTheme(true)
 public class PasswordActivity extends BaseActivity {

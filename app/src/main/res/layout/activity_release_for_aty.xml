@@ -101,7 +101,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -116,14 +117,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="仪器耗材" />
+                android:text="仪器耗材"
+                android:textSize="15sp" />
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:padding="12dp"
-                android:text=">" />
+                android:layout_marginRight="24px"
+                android:layout_marginTop="32px"
+                android:src="@mipmap/buy_icon_open" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoLinearLayout

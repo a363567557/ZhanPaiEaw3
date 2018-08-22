@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#F7F7F7"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="zpe.jiakeyi.com.zhanpaieaw.activity.my.MobileActivity">
@@ -31,7 +31,7 @@
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -46,7 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:text="原手机号" />
+                android:text="原手机号"
+                android:textColor="#333333"
+                android:textSize="24px" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +69,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:text="原手机号" />
+                android:text="新手机号"
+                android:textColor="#333333"
+                android:textSize="24px" />
 
             <EditText
                 android:id="@+id/user_name"
@@ -97,7 +101,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:text="原手机号" />
+                android:text="验证码"
+                android:textColor="#333333"
+                android:textSize="24px" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -105,7 +111,7 @@
                 android:layout_marginLeft="80dp"
                 android:background="@null"
                 android:drawablePadding="8dp"
-                android:hint="输入手机号"
+                android:hint="输入验证码"
                 android:inputType="number"
                 android:lines="1"
                 android:maxLength="11"
@@ -115,6 +121,7 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/fvd_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

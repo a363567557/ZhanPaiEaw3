@@ -323,6 +323,7 @@
                     android:drawableLeft="@mipmap/product_icon_phone"
                     android:gravity="center"
                     android:text="打电话"
+                    android:drawablePadding="10px"
                     android:textSize="28px" />
             </com.zhy.autolayout.AutoLinearLayout>
 
@@ -338,6 +339,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:drawablePadding="10px"
                     android:drawableLeft="@mipmap/product_icon_news"
                     android:gravity="center"
                     android:text="发消息"

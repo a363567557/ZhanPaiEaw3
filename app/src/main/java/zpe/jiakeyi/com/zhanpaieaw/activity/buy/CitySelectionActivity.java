@@ -80,7 +80,7 @@ public class CitySelectionActivity extends BaseActivity {
     public void initDatas(JumpParameter paramer) {
         qingqiu();
         string = Preferences.getInstance().getString(me, "user", "user");
-        Log.d("zdl","========数据======="+string);
+        Log.d("zdl", "========数据=======" + string);
 //        逻辑处理
         if (string != null) {
             luoji();
@@ -93,9 +93,7 @@ public class CitySelectionActivity extends BaseActivity {
         queren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ReleaseForAty.setSheng(Sheng);
-//                ReleaseForAty.setShi(Shi);
-//                ReleaseForAty.setQu(Qu);
+                setResponse(new JumpParameter().put("省", Sheng).put("市", Shi).put("区", Qu));
                 finish();
             }
         });
@@ -131,8 +129,8 @@ public class CitySelectionActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response) {
-                        if (string == null){
-                            Log.d("zdl", "======================开始存粗"+response);
+                        if (string == null) {
+                            Log.d("zdl", "======================开始存粗" + response);
                             Preferences.getInstance().set(me, "user", "user", response);
                             Log.d("zdl", "======================完成");
                         }
@@ -160,26 +158,26 @@ public class CitySelectionActivity extends BaseActivity {
                         list3 = list2.get(position2).getList();
                         ListAdapter listAdapter = new ListAdapter(R.layout.item_sheng, list3);
 
-                                            rtll_rv_qu.setAdapter(listAdapter);
-                                            beanXAdapter.notifyDataSetChanged();
-                                            listAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                                                @Override
-                                                public void onItemClick(BaseQuickAdapter adapter, View view, int position3) {
-                                                    toast(list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName());
-                                                    shengshi = list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName();
-                                                    Sheng = list.get(position1);
-                                                    Shi = list.get(position1).getList().get(position2);
-                                                    Qu = list.get(position1).getList().get(position2).getList().get(position3);
-                                                }
-                                            });
-                                        }
-                                    });
-                                    cityAdapter.notifyDataSetChanged();
-                                    beanXAdapter.notifyDataSetChanged();
-                                    if (list3 != null) {
-                                        list3.clear();
-                                        beanXAdapter.notifyDataSetChanged();
-                                    }
+                        rtll_rv_qu.setAdapter(listAdapter);
+                        beanXAdapter.notifyDataSetChanged();
+                        listAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(BaseQuickAdapter adapter, View view, int position3) {
+                                toast(list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName());
+                                shengshi = list.get(position1).getAreaName() + "," + list2.get(position2).getAreaName() + "," + list3.get(position3).getAreaName();
+                                Sheng = list.get(position1);
+                                Shi = list.get(position1).getList().get(position2);
+                                Qu = list.get(position1).getList().get(position2).getList().get(position3);
+                            }
+                        });
+                    }
+                });
+                cityAdapter.notifyDataSetChanged();
+                beanXAdapter.notifyDataSetChanged();
+                if (list3 != null) {
+                    list3.clear();
+                    beanXAdapter.notifyDataSetChanged();
+                }
 
             }
         });

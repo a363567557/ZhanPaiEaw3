@@ -128,11 +128,6 @@
             android:gravity="center"
             android:text="验证码登录" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,8 +136,8 @@
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180sp"
-            android:layout_marginTop="100px"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
             android:orientation="horizontal">
 
             <ImageView
@@ -161,18 +156,19 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="你猜" />
+                android:text="登录即代表您已同意" />
 
             <TextView
+                android:id="@+id/text_yhxy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="你猜"
+                android:text="《用戶注冊协议》"
                 android:textColor="@color/bule" />
         </com.zhy.autolayout.AutoLinearLayout>
 

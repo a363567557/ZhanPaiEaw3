@@ -58,7 +58,6 @@ public class BuyBuyActivity extends BaseActivity {
         viewpager.setCurrentItem(0);
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(0)));
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(1)));
-        tablayout_xiaoxi.setTabTextColors(Color.GRAY, Color.rgb(140, 211, 236));//变颜色
         tablayout_xiaoxi.setupWithViewPager(viewpager);//把tablayout和viewpage绑定在一起
         back_buy = findViewById(R.id.back_buy);
     }

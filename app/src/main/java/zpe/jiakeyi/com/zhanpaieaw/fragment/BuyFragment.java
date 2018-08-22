@@ -28,7 +28,7 @@ import zpe.jiakeyi.com.zhanpaieaw.fragment.buy.BuyAddFragment;
  * @author dell-pc
  */
 @Layout(R.layout.fragment_buy)
-public class BuyFragment extends BaseFragment{
+public class BuyFragment extends BaseFragment {
     private ImageView title_back;
     private TextView title_name;
     private ImageView title_seek;
@@ -62,7 +62,7 @@ public class BuyFragment extends BaseFragment{
         titles.add("实验仪器");
         titles.add("服务");
         titles.add("家具");
-        titles.add("仪器耗材");
+        titles.add("仪器与耗材");
         datas.add(new BuyAddFragment(0, titles.get(0)));
         datas.add(new BuyAddFragment(1, titles.get(1)));
         datas.add(new BuyAddFragment(2, titles.get(2)));

@@ -49,7 +49,7 @@ public class MassageFragment extends BaseFragment {
     @Override
     public void initDatas() {
         auto_ll.setY(me.getStatusBarHeight());
-        lists.add("用户信息");
+        lists.add("互动消息");
         lists.add("系统信息");
         data.add(new UserFragment());
         data.add(new SystemFragment());
@@ -59,7 +59,6 @@ public class MassageFragment extends BaseFragment {
 
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(0)));
         tablayout_xiaoxi.addTab(tablayout_xiaoxi.newTab().setText(lists.get(1)));
-        tablayout_xiaoxi.setTabTextColors(Color.GRAY, Color.rgb(140, 211, 236));//变颜色
         tablayout_xiaoxi.setupWithViewPager(viewpager);//把tablayout和viewpage绑定在一起
     }
 
